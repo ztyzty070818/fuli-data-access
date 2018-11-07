@@ -58,10 +58,4 @@ public class ScpUtil {
 		}
 		return true;
 	}
-
-
-	public static void main(String[] args) {
-		ScpUtil scpUtil = new ScpUtil("192.168.0.224", "root", "123456");
-		scpUtil.getFile("/tmp/update.json", ".");
-	}
 }

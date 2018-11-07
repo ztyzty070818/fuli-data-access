@@ -1,0 +1,934 @@
+{
+  "type": "update_default",
+  "data": [],
+  "filterColumns": [
+    "order_create_time"
+  ],
+  "dataSchema": {
+    "dataSource": "tindex_r1aJyE6dM_project_l3fdXSPRWD",
+    "parser": {
+      "type": "map",
+      "parseSpec": {
+        "format": "json",
+        "timestampSpec": {
+          "column": "order_create_time",
+          "format": "millis"
+        },
+        "dimensionsSpec": {
+          "dimensions": [
+            {
+              "name": "order_id",
+              "type": "string"
+            },
+            {
+              "name": "total_id",
+              "type": "string"
+            },
+            {
+              "name": "order_account_id",
+              "type": "string"
+            },
+            {
+              "name": "community_id",
+              "type": "string"
+            },
+            {
+              "name": "order_app_id",
+              "type": "string"
+            },
+            {
+              "name": "order_service_id",
+              "type": "string"
+            },
+            {
+              "name": "uid",
+              "type": "string"
+            },
+            {
+              "name": "caution_id",
+              "type": "string"
+            },
+            {
+              "name": "pay_channel",
+              "type": "string"
+            },
+            {
+              "name": "out_trade_no",
+              "type": "string"
+            },
+            {
+              "name": "client_ip",
+              "type": "string"
+            },
+            {
+              "name": "project_type",
+              "type": "string"
+            },
+            {
+              "name": "trade_type",
+              "type": "string"
+            },
+            {
+              "name": "weixin_open_id",
+              "type": "string"
+            },
+            {
+              "name": "expire_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "bussiness_type",
+              "type": "string"
+            },
+            {
+              "name": "order_create_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "order_update_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "bill_status",
+              "type": "string"
+            },
+            {
+              "name": "bill_id",
+              "type": "string"
+            },
+            {
+              "name": "bill_create_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "community_trade_no",
+              "type": "string"
+            },
+            {
+              "name": "bill_finished_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "total_amount",
+              "type": "double"
+            },
+            {
+              "name": "platform_charge",
+              "type": "double"
+            },
+            {
+              "name": "platform_charge_rate",
+              "type": "double"
+            },
+            {
+              "name": "service_charge",
+              "type": "double"
+            },
+            {
+              "name": "service_charge_rate",
+              "type": "double"
+            },
+            {
+              "name": "receipt_amount",
+              "type": "double"
+            },
+            {
+              "name": "tixian_thrid",
+              "type": "string"
+            },
+            {
+              "name": "tixian_community",
+              "type": "string"
+            },
+            {
+              "name": "refund_status",
+              "type": "string"
+            },
+            {
+              "name": "refund_reason",
+              "type": "string"
+            },
+            {
+              "name": "refund_id",
+              "type": "string"
+            },
+            {
+              "name": "refund_remark",
+              "type": "string"
+            },
+            {
+              "name": "refund_create_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "refund_money",
+              "type": "double"
+            },
+            {
+              "name": "refund_bill_id",
+              "type": "string"
+            },
+            {
+              "name": "refund_account_id",
+              "type": "string"
+            },
+            {
+              "name": "same_way",
+              "type": "string"
+            },
+            {
+              "name": "withdraw_status",
+              "type": "string"
+            },
+            {
+              "name": "order_type",
+              "type": "string"
+            },
+            {
+              "name": "service_charge_status",
+              "type": "string"
+            },
+            {
+              "name": "balance_status",
+              "type": "string"
+            },
+            {
+              "name": "service_charge_bill_id",
+              "type": "string"
+            },
+            {
+              "name": "service_account",
+              "type": "string"
+            },
+            {
+              "name": "service_account_mchid",
+              "type": "string"
+            },
+            {
+              "name": "merchant_bill_id",
+              "type": "string"
+            },
+            {
+              "name": "bill_split_status",
+              "type": "string"
+            },
+            {
+              "name": "bill_split_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "split_amount",
+              "type": "double"
+            },
+            {
+              "name": "open_id",
+              "type": "string"
+            },
+            {
+              "name": "out_status",
+              "type": "string"
+            },
+            {
+              "name": "out_status_content",
+              "type": "string"
+            },
+            {
+              "name": "settle_id",
+              "type": "string"
+            },
+            {
+              "name": "pf_balance_status",
+              "type": "string"
+            },
+            {
+              "name": "pf_bussiness_balance_status",
+              "type": "string"
+            },
+            {
+              "name": "pf_refund_status",
+              "type": "string"
+            },
+            {
+              "name": "pf_refund_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "subject",
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "type": "string"
+            },
+            {
+              "name": "detail",
+              "type": "string"
+            },
+            {
+              "name": "goods_detail",
+              "type": "string"
+            },
+            {
+              "name": "service_id",
+              "type": "string"
+            },
+            {
+              "name": "service_title",
+              "type": "string"
+            },
+            {
+              "name": "service_png",
+              "type": "string"
+            },
+            {
+              "name": "disable_png",
+              "type": "string"
+            },
+            {
+              "name": "reorder",
+              "type": "string"
+            },
+            {
+              "name": "clause",
+              "type": "string"
+            },
+            {
+              "name": "service_type",
+              "type": "string"
+            },
+            {
+              "name": "is_account",
+              "type": "string"
+            },
+            {
+              "name": "service_link",
+              "type": "string"
+            },
+            {
+              "name": "provide_type",
+              "type": "string"
+            },
+            {
+              "name": "service_status",
+              "type": "string"
+            },
+            {
+              "name": "service_app_id",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "name": "audit_comment",
+              "type": "string"
+            },
+            {
+              "name": "service_create_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "service_update_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "audit_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "is_need_hardware",
+              "type": "string"
+            },
+            {
+              "name": "service_target_month_turnover",
+              "type": "double"
+            },
+            {
+              "name": "paid_caution_money",
+              "type": "double"
+            },
+            {
+              "name": "caution_money_status",
+              "type": "string"
+            },
+            {
+              "name": "ground_mode",
+              "type": "string"
+            },
+            {
+              "name": "service_account_id",
+              "type": "string"
+            },
+            {
+              "name": "audit_status",
+              "type": "string"
+            },
+            {
+              "name": "clause_id",
+              "type": "string"
+            },
+            {
+              "name": "app_secret",
+              "type": "string"
+            },
+            {
+              "name": "receivable_caution_money",
+              "type": "double"
+            },
+            {
+              "name": "recommend_level",
+              "type": "double"
+            },
+            {
+              "name": "caution_money_type",
+              "type": "string"
+            },
+            {
+              "name": "caution_money_pic",
+              "type": "string"
+            },
+            {
+              "name": "remark",
+              "type": "string"
+            },
+            {
+              "name": "caution_bill_id",
+              "type": "string"
+            },
+            {
+              "name": "commission_rate",
+              "type": "double"
+            },
+            {
+              "name": "user_range",
+              "type": "string"
+            },
+            {
+              "name": "ground_audit_status",
+              "type": "string"
+            },
+            {
+              "name": "shot",
+              "type": "string"
+            },
+            {
+              "name": "account_receivable_project",
+              "type": "string"
+            },
+            {
+              "name": "notify_url",
+              "type": "string"
+            },
+            {
+              "name": "balance_receive_email",
+              "type": "string"
+            },
+            {
+              "name": "under_reason",
+              "type": "string"
+            },
+            {
+              "name": "ground_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "max_ios_version",
+              "type": "string"
+            },
+            {
+              "name": "min_ios_version",
+              "type": "string"
+            },
+            {
+              "name": "max_andoird_version",
+              "type": "string"
+            },
+            {
+              "name": "min_andoird_version",
+              "type": "string"
+            },
+            {
+              "name": "service_need",
+              "type": "string"
+            },
+            {
+              "name": "merchant_id",
+              "type": "string"
+            },
+            {
+              "name": "email",
+              "type": "string"
+            },
+            {
+              "name": "merchant_type",
+              "type": "string"
+            },
+            {
+              "name": "merchant_title",
+              "type": "string"
+            },
+            {
+              "name": "title_simple",
+              "type": "string"
+            },
+            {
+              "name": "introduction",
+              "type": "string"
+            },
+            {
+              "name": "business_scope",
+              "type": "string"
+            },
+            {
+              "name": "merchant_create_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "merchant_update_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "registration_number",
+              "type": "string"
+            },
+            {
+              "name": "business_license",
+              "type": "string"
+            },
+            {
+              "name": "is_other_license",
+              "type": "string"
+            },
+            {
+              "name": "other_license",
+              "type": "string"
+            },
+            {
+              "name": "merchant_target_month_turnover",
+              "type": "string"
+            },
+            {
+              "name": "contact_person",
+              "type": "string"
+            },
+            {
+              "name": "contact_phone",
+              "type": "string"
+            },
+            {
+              "name": "province_area_id",
+              "type": "string"
+            },
+            {
+              "name": "city_area_id",
+              "type": "string"
+            },
+            {
+              "name": "merchant_area_id",
+              "type": "string"
+            },
+            {
+              "name": "area_info",
+              "type": "string"
+            },
+            {
+              "name": "merchant_status",
+              "type": "string"
+            },
+            {
+              "name": "status_content",
+              "type": "string"
+            },
+            {
+              "name": "bank_title",
+              "type": "string"
+            },
+            {
+              "name": "bank_account_name",
+              "type": "string"
+            },
+            {
+              "name": "bank_account",
+              "type": "string"
+            },
+            {
+              "name": "id_number",
+              "type": "string"
+            },
+            {
+              "name": "id_positive",
+              "type": "string"
+            },
+            {
+              "name": "id_obverse",
+              "type": "string"
+            },
+            {
+              "name": "platform_fee",
+              "type": "double"
+            },
+            {
+              "name": "mch_id",
+              "type": "string"
+            },
+            {
+              "name": "merchant_account_id",
+              "type": "string"
+            },
+            {
+              "name": "merchant_xfsj_status",
+              "type": "string"
+            },
+            {
+              "name": "legal_name",
+              "type": "string"
+            },
+            {
+              "name": "legal_id_card",
+              "type": "string"
+            },
+            {
+              "name": "legal_id_positive",
+              "type": "string"
+            },
+            {
+              "name": "legal_id_back",
+              "type": "string"
+            },
+            {
+              "name": "src_business",
+              "type": "string"
+            },
+            {
+              "name": "src_city",
+              "type": "string"
+            },
+            {
+              "name": "is_mandatary",
+              "type": "string"
+            },
+            {
+              "name": "mandatary_name",
+              "type": "string"
+            },
+            {
+              "name": "mandatary_id_card",
+              "type": "string"
+            },
+            {
+              "name": "mandatary_id_positive",
+              "type": "string"
+            },
+            {
+              "name": "mandatary_id_back",
+              "type": "string"
+            },
+            {
+              "name": "mandatary_other",
+              "type": "string"
+            },
+            {
+              "name": "category_id",
+              "type": "string"
+            },
+            {
+              "name": "category_name",
+              "type": "string"
+            },
+            {
+              "name": "category_create_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "category_type",
+              "type": "string"
+            },
+            {
+              "name": "category_sort",
+              "type": "string"
+            },
+            {
+              "name": "exposure",
+              "type": "string"
+            },
+            {
+              "name": "pid",
+              "type": "string"
+            },
+            {
+              "name": "category_link",
+              "type": "string"
+            },
+            {
+              "name": "category_png",
+              "type": "string"
+            },
+            {
+              "name": "community_fee",
+              "type": "double"
+            },
+            {
+              "name": "premium_num",
+              "type": "string"
+            },
+            {
+              "name": "valid_status",
+              "type": "string"
+            },
+            {
+              "name": "develop_type",
+              "type": "string"
+            },
+            {
+              "name": "templete_name",
+              "type": "string"
+            },
+            {
+              "name": "templete_status",
+              "type": "string"
+            },
+            {
+              "name": "app_index_sort",
+              "type": "string"
+            },
+            {
+              "name": "app_cat_sort",
+              "type": "string"
+            },
+            {
+              "name": "rfchina_code",
+              "type": "string"
+            },
+            {
+              "name": "caution_refund_status",
+              "type": "string"
+            },
+            {
+              "name": "caution_refund_reason",
+              "type": "string"
+            },
+            {
+              "name": "detail_xfsj_status",
+              "type": "string"
+            },
+            {
+              "name": "category_second_type",
+              "type": "string"
+            },
+            {
+              "name": "protocol_url",
+              "type": "string"
+            },
+            {
+              "name": "verify_role",
+              "type": "string"
+            },
+            {
+              "name": "community_name",
+              "type": "string"
+            },
+            {
+              "name": "phone",
+              "type": "string"
+            },
+            {
+              "name": "tel",
+              "type": "string"
+            },
+            {
+              "name": "city_id",
+              "type": "string"
+            },
+            {
+              "name": "city_name",
+              "type": "string"
+            },
+            {
+              "name": "address",
+              "type": "string"
+            },
+            {
+              "name": "intro",
+              "type": "string"
+            },
+            {
+              "name": "community_status",
+              "type": "string"
+            },
+            {
+              "name": "category",
+              "type": "string"
+            },
+            {
+              "name": "project_guid",
+              "type": "string"
+            },
+            {
+              "name": "community_sort",
+              "type": "string"
+            },
+            {
+              "name": "qrcode_url",
+              "type": "string"
+            },
+            {
+              "name": "longitude",
+              "type": "string"
+            },
+            {
+              "name": "latitude",
+              "type": "string"
+            },
+            {
+              "name": "admin_id",
+              "type": "string"
+            },
+            {
+              "name": "community_type",
+              "type": "string"
+            },
+            {
+              "name": "building_area",
+              "type": "string"
+            },
+            {
+              "name": "practical_area",
+              "type": "string"
+            },
+            {
+              "name": "type_desc",
+              "type": "string"
+            },
+            {
+              "name": "logo_url",
+              "type": "string"
+            },
+            {
+              "name": "background_url",
+              "type": "string"
+            },
+            {
+              "name": "topic_audit",
+              "type": "string"
+            },
+            {
+              "name": "community_create_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "cid",
+              "type": "string"
+            },
+            {
+              "name": "weixin",
+              "type": "string"
+            },
+            {
+              "name": "property_company",
+              "type": "string"
+            },
+            {
+              "name": "business_person",
+              "type": "string"
+            },
+            {
+              "name": "business_phone",
+              "type": "string"
+            },
+            {
+              "name": "business_email",
+              "type": "string"
+            },
+            {
+              "name": "community_pinyin",
+              "type": "string"
+            },
+            {
+              "name": "sync_flag",
+              "type": "tinyint"
+            },
+            {
+              "name": "community_update_time",
+              "format": "millis",
+              "type": "date"
+            },
+            {
+              "name": "area_id",
+              "type": "string"
+            },
+            {
+              "name": "area_name",
+              "type": "string"
+            },
+            {
+              "name": "parent_id",
+              "type": "string"
+            },
+            {
+              "name": "short_name",
+              "type": "string"
+            },
+            {
+              "name": "level_type",
+              "type": "tinyint"
+            },
+            {
+              "name": "city_code",
+              "type": "string"
+            },
+            {
+              "name": "zipcode",
+              "type": "string"
+            },
+            {
+              "name": "merger_name",
+              "type": "string"
+            },
+            {
+              "name": "lng",
+              "type": "double"
+            },
+            {
+              "name": "lat",
+              "type": "double"
+            },
+            {
+              "name": "area_pinyin",
+              "type": "string"
+            },
+            {
+              "name": "day",
+              "type": "string"
+            }
+          ],
+          "dimensionExclusions": []
+        }
+      }
+    },
+    "metricsSpec": [],
+    "granularitySpec": {
+      "type": "uniform",
+      "segmentGranularity": "MONTH",
+      "intervals": [
+        "2010-01-01/2019-01-01"
+      ]
+    }
+  }
+}

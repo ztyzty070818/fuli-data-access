@@ -26,7 +26,6 @@
     <orderEntry type="library" name="Maven: asm:asm-commons:3.1" level="project" />
     <orderEntry type="library" name="Maven: asm:asm-tree:3.1" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty.orbit:javax.servlet:3.0.0.v201112011016" level="project" />
-    <orderEntry type="library" name="Maven: joda-time:joda-time:2.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-1.2-api:2.6.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.6.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.6.2" level="project" />
@@ -208,5 +207,7 @@
     <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-yarn-common:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-mapreduce-client-jobclient:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: ch.ethz.ganymed:ganymed-ssh2:build210" level="project" />
+    <orderEntry type="library" name="Maven: com.microsoft.sqlserver:mssql-jdbc:7.0.0.jre8" level="project" />
+    <orderEntry type="library" name="Maven: joda-time:joda-time:2.9.9" level="project" />
   </component>
 </module>
