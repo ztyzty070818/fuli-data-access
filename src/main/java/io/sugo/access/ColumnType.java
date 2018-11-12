@@ -46,7 +46,7 @@ public class ColumnType {
 			String[] strs = str.split("\t");
 			String name = strs[0].trim();
 			String type = strs[1].trim();
-			if (name.endsWith("_time") && !name.equals("express_time")) {
+			if (name.endsWith("_time") && !name.endsWith("express_time")) {
 				map.put(name, "date");
 			} else if (type.equals("int")) {
 				if (name.endsWith("verify_times") || name.endsWith("amount")) {

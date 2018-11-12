@@ -3,13 +3,13 @@
   "worker": "dev224.sugo.net:8091",
   "spec": {
     "dataSchema": {
-      "dataSource": "tindex_r1aJyE6dM_project_3XFcb6Wtx",
+      "dataSource": "tindex_r1aJyE6dM_project_IEG98xDwO",
       "metricsSpec": [],
       "parser": {
         "parseSpec": {
           "format": "csv",
           "timestampSpec": {
-            "column": "order_create_time",
+            "column": "open_order__create_time",
             "format": "millis"
           },
           "dimensionsSpec": {
@@ -17,1195 +17,1671 @@
             "spatialDimensions": [],
             "dimensions": [
               {
-                "name": "order_id",
+                "name": "open_order__id",
                 "type": "string"
               },
               {
-                "name": "user_id",
+                "name": "open_order__total_id",
                 "type": "string"
               },
               {
-                "name": "open_id",
+                "name": "open_order__account_id",
                 "type": "string"
               },
               {
-                "name": "community_id",
+                "name": "open_order__community_id",
                 "type": "string"
               },
               {
-                "name": "addr_info_id",
+                "name": "open_order__app_id",
                 "type": "string"
               },
               {
-                "name": "addr_info",
+                "name": "open_order__service_id",
                 "type": "string"
               },
               {
-                "name": "addr_detail",
+                "name": "open_order__uid",
                 "type": "string"
               },
               {
-                "name": "user_name",
+                "name": "open_order__caution_id",
                 "type": "string"
               },
               {
-                "name": "mobile",
+                "name": "open_order__pay_channel",
                 "type": "string"
               },
               {
-                "name": "order_code",
+                "name": "open_order__out_trade_no",
                 "type": "string"
               },
               {
-                "name": "out_trade_no",
+                "name": "open_order__client_ip",
                 "type": "string"
               },
               {
-                "name": "express_money",
-                "type": "double"
-              },
-              {
-                "name": "goods_total",
-                "type": "double"
-              },
-              {
-                "name": "original_price",
-                "type": "double"
-              },
-              {
-                "name": "discount_price",
-                "type": "double"
-              },
-              {
-                "name": "total_amount",
-                "type": "double"
-              },
-              {
-                "name": "coupon_price",
-                "type": "double"
-              },
-              {
-                "name": "verify_status",
+                "name": "open_order__project_type",
                 "type": "string"
               },
               {
-                "name": "subject",
+                "name": "open_order__trade_type",
                 "type": "string"
               },
               {
-                "name": "body",
+                "name": "open_order__weixin_open_id",
                 "type": "string"
               },
               {
-                "name": "detail",
-                "type": "string"
-              },
-              {
-                "name": "express_type",
-                "type": "string"
-              },
-              {
-                "name": "express_name",
-                "type": "string"
-              },
-              {
-                "name": "express_code",
-                "type": "string"
-              },
-              {
-                "name": "express_time",
-                "type": "string"
-              },
-              {
-                "name": "express_area",
-                "type": "string"
-              },
-              {
-                "name": "express_phone",
-                "type": "string"
-              },
-              {
-                "name": "order_pay_status",
-                "type": "string"
-              },
-              {
-                "name": "pay_channel",
-                "type": "string"
-              },
-              {
-                "name": "send_status",
-                "type": "string"
-              },
-              {
-                "name": "send_time",
+                "name": "open_order__expire_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "refund_time",
+                "name": "open_order__bussiness_type",
+                "type": "string"
+              },
+              {
+                "name": "open_order__create_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "refund_status",
-                "type": "string"
-              },
-              {
-                "name": "refund_approval",
-                "type": "string"
-              },
-              {
-                "name": "refund_comment",
-                "type": "string"
-              },
-              {
-                "name": "refund_remark",
-                "type": "string"
-              },
-              {
-                "name": "result_status",
-                "type": "string"
-              },
-              {
-                "name": "same_way",
-                "type": "string"
-              },
-              {
-                "name": "open_refund_id",
-                "type": "string"
-              },
-              {
-                "name": "order_create_time",
+                "name": "open_order__update_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "invalid_time",
+                "name": "open_order__bill_status",
+                "type": "string"
+              },
+              {
+                "name": "open_order__bill_id",
+                "type": "string"
+              },
+              {
+                "name": "open_order__bill_create_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "confirm_time",
+                "name": "open_order__community_trade_no",
+                "type": "string"
+              },
+              {
+                "name": "open_order__bill_finished_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "resource_type",
-                "type": "string"
-              },
-              {
-                "name": "coupon_record_id",
-                "type": "string"
-              },
-              {
-                "name": "order_type",
-                "type": "string"
-              },
-              {
-                "name": "xfsj_id",
-                "type": "string"
-              },
-              {
-                "name": "order_remark",
-                "type": "string"
-              },
-              {
-                "name": "service_id",
-                "type": "string"
-              },
-              {
-                "name": "service_title",
-                "type": "string"
-              },
-              {
-                "name": "service_png",
-                "type": "string"
-              },
-              {
-                "name": "disable_png",
-                "type": "string"
-              },
-              {
-                "name": "reorder",
-                "type": "string"
-              },
-              {
-                "name": "clause",
-                "type": "string"
-              },
-              {
-                "name": "service_type",
-                "type": "string"
-              },
-              {
-                "name": "is_account",
-                "type": "string"
-              },
-              {
-                "name": "service_link",
-                "type": "string"
-              },
-              {
-                "name": "provide_type",
-                "type": "string"
-              },
-              {
-                "name": "service_status",
-                "type": "string"
-              },
-              {
-                "name": "service_app_id",
-                "type": "string"
-              },
-              {
-                "name": "description",
-                "type": "string"
-              },
-              {
-                "name": "audit_comment",
-                "type": "string"
-              },
-              {
-                "name": "service_create_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "service_update_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "audit_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "is_need_hardware",
-                "type": "string"
-              },
-              {
-                "name": "service_target_month_turnover",
+                "name": "open_order__total_amount",
                 "type": "double"
               },
               {
-                "name": "paid_caution_money",
+                "name": "open_order__platform_charge",
+                "type": "string"
+              },
+              {
+                "name": "open_order__platform_charge_rate",
                 "type": "double"
               },
               {
-                "name": "caution_money_status",
+                "name": "open_order__service_charge",
                 "type": "string"
               },
               {
-                "name": "ground_mode",
+                "name": "open_order__service_charge_rate",
                 "type": "string"
               },
               {
-                "name": "service_account_id",
-                "type": "string"
-              },
-              {
-                "name": "audit_status",
-                "type": "string"
-              },
-              {
-                "name": "clause_id",
-                "type": "string"
-              },
-              {
-                "name": "app_secret",
-                "type": "string"
-              },
-              {
-                "name": "receivable_caution_money",
+                "name": "open_order__receipt_amount",
                 "type": "double"
               },
               {
-                "name": "recommend_level",
-                "type": "double"
-              },
-              {
-                "name": "caution_money_type",
+                "name": "open_order__tixian_thrid",
                 "type": "string"
               },
               {
-                "name": "caution_money_pic",
+                "name": "open_order__tixian_community",
                 "type": "string"
               },
               {
-                "name": "service_remark",
+                "name": "open_order__refund_status",
                 "type": "string"
               },
               {
-                "name": "caution_bill_id",
+                "name": "open_order__refund_reason",
                 "type": "string"
               },
               {
-                "name": "commission_rate",
-                "type": "double"
-              },
-              {
-                "name": "user_range",
+                "name": "open_order__refund_id",
                 "type": "string"
               },
               {
-                "name": "ground_audit_status",
+                "name": "open_order__refund_remark",
                 "type": "string"
               },
               {
-                "name": "shot",
-                "type": "string"
-              },
-              {
-                "name": "account_receivable_project",
-                "type": "string"
-              },
-              {
-                "name": "notify_url",
-                "type": "string"
-              },
-              {
-                "name": "balance_receive_email",
-                "type": "string"
-              },
-              {
-                "name": "under_reason",
-                "type": "string"
-              },
-              {
-                "name": "ground_time",
+                "name": "open_order__refund_create_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "max_ios_version",
-                "type": "string"
-              },
-              {
-                "name": "min_ios_version",
-                "type": "string"
-              },
-              {
-                "name": "max_andoird_version",
-                "type": "string"
-              },
-              {
-                "name": "min_andoird_version",
-                "type": "string"
-              },
-              {
-                "name": "service_need",
-                "type": "string"
-              },
-              {
-                "name": "merchant_id",
-                "type": "string"
-              },
-              {
-                "name": "email",
-                "type": "string"
-              },
-              {
-                "name": "merchant_type",
-                "type": "string"
-              },
-              {
-                "name": "merchant_title",
-                "type": "string"
-              },
-              {
-                "name": "title_simple",
-                "type": "string"
-              },
-              {
-                "name": "introduction",
-                "type": "string"
-              },
-              {
-                "name": "business_scope",
-                "type": "string"
-              },
-              {
-                "name": "merchant_create_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "merchant_update_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "registration_number",
-                "type": "string"
-              },
-              {
-                "name": "business_license",
-                "type": "string"
-              },
-              {
-                "name": "is_other_license",
-                "type": "string"
-              },
-              {
-                "name": "other_license",
-                "type": "string"
-              },
-              {
-                "name": "merchant_target_month_turnover",
-                "type": "string"
-              },
-              {
-                "name": "contact_person",
-                "type": "string"
-              },
-              {
-                "name": "contact_phone",
-                "type": "string"
-              },
-              {
-                "name": "province_area_id",
-                "type": "string"
-              },
-              {
-                "name": "city_area_id",
-                "type": "string"
-              },
-              {
-                "name": "merchant_area_id",
-                "type": "string"
-              },
-              {
-                "name": "area_info",
-                "type": "string"
-              },
-              {
-                "name": "merchant_status",
-                "type": "string"
-              },
-              {
-                "name": "status_content",
-                "type": "string"
-              },
-              {
-                "name": "bank_title",
-                "type": "string"
-              },
-              {
-                "name": "bank_account_name",
-                "type": "string"
-              },
-              {
-                "name": "bank_account",
-                "type": "string"
-              },
-              {
-                "name": "id_number",
-                "type": "string"
-              },
-              {
-                "name": "id_positive",
-                "type": "string"
-              },
-              {
-                "name": "id_obverse",
-                "type": "string"
-              },
-              {
-                "name": "platform_fee",
+                "name": "open_order__refund_money",
                 "type": "double"
               },
               {
-                "name": "mch_id",
+                "name": "open_order__refund_bill_id",
                 "type": "string"
               },
               {
-                "name": "merchant_account_id",
+                "name": "open_order__refund_account_id",
                 "type": "string"
               },
               {
-                "name": "merchant_xfsj_status",
+                "name": "open_order__same_way",
                 "type": "string"
               },
               {
-                "name": "legal_name",
+                "name": "open_order__withdraw_status",
                 "type": "string"
               },
               {
-                "name": "legal_id_card",
+                "name": "open_order__type",
                 "type": "string"
               },
               {
-                "name": "legal_id_positive",
+                "name": "open_order__service_charge_status",
                 "type": "string"
               },
               {
-                "name": "legal_id_back",
+                "name": "open_order__balance_status",
                 "type": "string"
               },
               {
-                "name": "src_business",
+                "name": "open_order__service_charge_bill_id",
                 "type": "string"
               },
               {
-                "name": "src_city",
+                "name": "open_order__service_account",
                 "type": "string"
               },
               {
-                "name": "is_mandatary",
+                "name": "open_order__service_account_mchid",
                 "type": "string"
               },
               {
-                "name": "mandatary_name",
+                "name": "open_order__merchant_bill_id",
                 "type": "string"
               },
               {
-                "name": "mandatary_id_card",
+                "name": "open_order__bill_split_status",
                 "type": "string"
               },
               {
-                "name": "mandatary_id_positive",
-                "type": "string"
-              },
-              {
-                "name": "mandatary_id_back",
-                "type": "string"
-              },
-              {
-                "name": "mandatary_other",
-                "type": "string"
-              },
-              {
-                "name": "category_id",
-                "type": "string"
-              },
-              {
-                "name": "category_name",
-                "type": "string"
-              },
-              {
-                "name": "category_create_time",
+                "name": "open_order__bill_split_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "category_type",
-                "type": "string"
-              },
-              {
-                "name": "category_sort",
-                "type": "string"
-              },
-              {
-                "name": "exposure",
-                "type": "string"
-              },
-              {
-                "name": "pid",
-                "type": "string"
-              },
-              {
-                "name": "category_link",
-                "type": "string"
-              },
-              {
-                "name": "category_png",
-                "type": "string"
-              },
-              {
-                "name": "community_fee",
+                "name": "open_order__split_amount",
                 "type": "double"
               },
               {
-                "name": "premium_num",
+                "name": "open_order__open_id",
                 "type": "string"
               },
               {
-                "name": "category_valid_status",
+                "name": "open_order__out_status",
                 "type": "string"
               },
               {
-                "name": "develop_type",
+                "name": "open_order__out_status_content",
                 "type": "string"
               },
               {
-                "name": "templete_name",
+                "name": "open_order__settle_id",
                 "type": "string"
               },
               {
-                "name": "templete_status",
+                "name": "open_order__pf_balance_status",
                 "type": "string"
               },
               {
-                "name": "app_index_sort",
+                "name": "open_order__pf_bussiness_balance_status",
                 "type": "string"
               },
               {
-                "name": "app_cat_sort",
+                "name": "open_order__pf_refund_status",
                 "type": "string"
               },
               {
-                "name": "rfchina_code",
-                "type": "string"
-              },
-              {
-                "name": "caution_refund_status",
-                "type": "string"
-              },
-              {
-                "name": "caution_refund_reason",
-                "type": "string"
-              },
-              {
-                "name": "detail_xfsj_status",
-                "type": "string"
-              },
-              {
-                "name": "category_second_type",
-                "type": "string"
-              },
-              {
-                "name": "protocol_url",
-                "type": "string"
-              },
-              {
-                "name": "verify_role",
-                "type": "string"
-              },
-              {
-                "name": "community_name",
-                "type": "string"
-              },
-              {
-                "name": "phone",
-                "type": "string"
-              },
-              {
-                "name": "tel",
-                "type": "string"
-              },
-              {
-                "name": "city_id",
-                "type": "string"
-              },
-              {
-                "name": "city_name",
-                "type": "string"
-              },
-              {
-                "name": "address",
-                "type": "string"
-              },
-              {
-                "name": "intro",
-                "type": "string"
-              },
-              {
-                "name": "community_status",
-                "type": "string"
-              },
-              {
-                "name": "category",
-                "type": "string"
-              },
-              {
-                "name": "project_guid",
-                "type": "string"
-              },
-              {
-                "name": "community_sort",
-                "type": "string"
-              },
-              {
-                "name": "qrcode_url",
-                "type": "string"
-              },
-              {
-                "name": "longitude",
-                "type": "string"
-              },
-              {
-                "name": "latitude",
-                "type": "string"
-              },
-              {
-                "name": "admin_id",
-                "type": "string"
-              },
-              {
-                "name": "community_type",
-                "type": "string"
-              },
-              {
-                "name": "building_area",
-                "type": "string"
-              },
-              {
-                "name": "practical_area",
-                "type": "string"
-              },
-              {
-                "name": "type_desc",
-                "type": "string"
-              },
-              {
-                "name": "logo_url",
-                "type": "string"
-              },
-              {
-                "name": "background_url",
-                "type": "string"
-              },
-              {
-                "name": "topic_audit",
-                "type": "string"
-              },
-              {
-                "name": "community_create_time",
+                "name": "open_order__pf_refund_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "cid",
+                "name": "open_order__subject",
                 "type": "string"
               },
               {
-                "name": "weixin",
+                "name": "open_order__body",
                 "type": "string"
               },
               {
-                "name": "property_company",
+                "name": "open_order__detail",
                 "type": "string"
               },
               {
-                "name": "business_person",
+                "name": "open_order__goods_detail",
                 "type": "string"
               },
               {
-                "name": "business_phone",
+                "name": "open_store_order__id",
                 "type": "string"
               },
               {
-                "name": "business_email",
+                "name": "open_store_order__user_id",
                 "type": "string"
               },
               {
-                "name": "community_pinyin",
+                "name": "open_store_order__open_id",
                 "type": "string"
               },
               {
-                "name": "sync_flag",
+                "name": "open_store_order__community_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__service_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__addr_info_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__addr_info",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__addr_detail",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__user_name",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__mobile",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__order_code",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__out_trade_no",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__express_money",
+                "type": "double"
+              },
+              {
+                "name": "open_store_order__goods_total",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__original_price",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__discount_price",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__total_amount",
+                "type": "double"
+              },
+              {
+                "name": "open_store_order__coupon_price",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__verify_status",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__subject",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__body",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__detail",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__express_type",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__express_name",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__express_code",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__express_time",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__express_area",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__express_phone",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__pay_status",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__pay_channel",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__send_status",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__send_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_store_order__refund_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_store_order__refund_status",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__refund_approval",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__refund_comment",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__refund_remark",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__result_status",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__same_way",
+                "type": "double"
+              },
+              {
+                "name": "open_store_order__open_refund_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_store_order__invalid_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_store_order__confirm_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_store_order__resource_type",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__coupon_record_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__type",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__xfsj_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_order__remark",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__id",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__uid",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__community_id",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__service_id",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__total_money",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__subtract_money",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__coupon_money",
+                "type": "double"
+              },
+              {
+                "name": "open_quick_order__real_money",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__coupon_id",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__bill_status",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__out_trade_no",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__community_trade_no",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__bill_id",
+                "type": "string"
+              },
+              {
+                "name": "open_quick_order__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_quick_order__pay_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "community_service__id",
+                "type": "double"
+              },
+              {
+                "name": "community_service__title",
+                "type": "string"
+              },
+              {
+                "name": "community_service__png",
+                "type": "string"
+              },
+              {
+                "name": "community_service__disable_png",
+                "type": "string"
+              },
+              {
+                "name": "community_service__reorder",
+                "type": "string"
+              },
+              {
+                "name": "community_service__clause",
+                "type": "string"
+              },
+              {
+                "name": "community_service__type",
+                "type": "string"
+              },
+              {
+                "name": "community_service__is_account",
+                "type": "string"
+              },
+              {
+                "name": "community_service__link",
+                "type": "string"
+              },
+              {
+                "name": "community_service__provide_type",
+                "type": "string"
+              },
+              {
+                "name": "community_service__status",
+                "type": "string"
+              },
+              {
+                "name": "community_service__app_id",
+                "type": "string"
+              },
+              {
+                "name": "community_service__description",
+                "type": "string"
+              },
+              {
+                "name": "community_service__audit_comment",
+                "type": "string"
+              },
+              {
+                "name": "community_service__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "community_service__update_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "community_service__audit_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "community_service__category_id",
+                "type": "string"
+              },
+              {
+                "name": "community_service__is_need_hardware",
+                "type": "string"
+              },
+              {
+                "name": "community_service__target_month_turnover",
+                "type": "double"
+              },
+              {
+                "name": "community_service__paid_caution_money",
+                "type": "double"
+              },
+              {
+                "name": "community_service__caution_money_status",
+                "type": "string"
+              },
+              {
+                "name": "community_service__ground_mode",
+                "type": "string"
+              },
+              {
+                "name": "community_service__merchant_id",
+                "type": "string"
+              },
+              {
+                "name": "community_service__account_id",
+                "type": "string"
+              },
+              {
+                "name": "community_service__audit_status",
+                "type": "string"
+              },
+              {
+                "name": "community_service__clause_id",
+                "type": "string"
+              },
+              {
+                "name": "community_service__app_secret",
+                "type": "string"
+              },
+              {
+                "name": "community_service__receivable_caution_money",
+                "type": "double"
+              },
+              {
+                "name": "community_service__recommend_level",
+                "type": "double"
+              },
+              {
+                "name": "community_service__caution_money_type",
+                "type": "string"
+              },
+              {
+                "name": "community_service__caution_money_pic",
+                "type": "string"
+              },
+              {
+                "name": "community_service__remark",
+                "type": "string"
+              },
+              {
+                "name": "community_service__caution_bill_id",
+                "type": "string"
+              },
+              {
+                "name": "community_service__commission_rate",
+                "type": "double"
+              },
+              {
+                "name": "community_service__user_range",
+                "type": "string"
+              },
+              {
+                "name": "community_service__ground_audit_status",
+                "type": "string"
+              },
+              {
+                "name": "community_service__shot",
+                "type": "string"
+              },
+              {
+                "name": "community_service__account_receivable_project",
+                "type": "string"
+              },
+              {
+                "name": "community_service__notify_url",
+                "type": "string"
+              },
+              {
+                "name": "community_service__balance_receive_email",
+                "type": "string"
+              },
+              {
+                "name": "community_service__under_reason",
+                "type": "string"
+              },
+              {
+                "name": "community_service__ground_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "community_service__max_ios_version",
+                "type": "string"
+              },
+              {
+                "name": "community_service__min_ios_version",
+                "type": "string"
+              },
+              {
+                "name": "community_service__max_andoird_version",
+                "type": "string"
+              },
+              {
+                "name": "community_service__min_andoird_version",
+                "type": "string"
+              },
+              {
+                "name": "community_service__service_need",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__id",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__email",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__type",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__title",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__title_simple",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__introduction",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__business_scope",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_merchant_info__update_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_merchant_info__registration_number",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__business_license",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__is_other_license",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__other_license",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__target_month_turnover",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__contact_person",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__contact_phone",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__province_area_id",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__city_area_id",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__area_id",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__area_info",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__status",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__status_content",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__bank_title",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__bank_account_name",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__bank_account",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__id_number",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__id_positive",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__id_obverse",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__platform_fee",
+                "type": "double"
+              },
+              {
+                "name": "open_merchant_info__mch_id",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__account_id",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__xfsj_status",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__legal_name",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__legal_id_card",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__legal_id_positive",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__legal_id_back",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__src_business",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__src_city",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__is_mandatary",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__mandatary_name",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__mandatary_id_card",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__mandatary_id_positive",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__mandatary_id_back",
+                "type": "string"
+              },
+              {
+                "name": "open_merchant_info__mandatary_other",
+                "type": "string"
+              },
+              {
+                "name": "community_service_category__id",
+                "type": "string"
+              },
+              {
+                "name": "community_service_category__name",
+                "type": "string"
+              },
+              {
+                "name": "community_service_category__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "community_service_category__type",
+                "type": "string"
+              },
+              {
+                "name": "community_service_category__sort",
+                "type": "string"
+              },
+              {
+                "name": "community_service_category__exposure",
+                "type": "string"
+              },
+              {
+                "name": "community_service_category__pid",
+                "type": "string"
+              },
+              {
+                "name": "community_service_category__link",
+                "type": "string"
+              },
+              {
+                "name": "community_service_category__png",
+                "type": "string"
+              },
+              {
+                "name": "community_service_category__community_fee",
+                "type": "double"
+              },
+              {
+                "name": "community_service_category__premium_num",
+                "type": "string"
+              },
+              {
+                "name": "community_service_category__valid_status",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__service_id",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__develop_type",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__templete_name",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__templete_status",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__app_index_sort",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__app_cat_sort",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__rfchina_code",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__caution_refund_status",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__caution_refund_reason",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__xfsj_status",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__category_second_type",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__protocol_url",
+                "type": "string"
+              },
+              {
+                "name": "open_service_detail__verify_role",
+                "type": "string"
+              },
+              {
+                "name": "community__id",
+                "type": "string"
+              },
+              {
+                "name": "community__name",
+                "type": "string"
+              },
+              {
+                "name": "community__phone",
+                "type": "string"
+              },
+              {
+                "name": "community__tel",
+                "type": "string"
+              },
+              {
+                "name": "community__city_id",
+                "type": "string"
+              },
+              {
+                "name": "community__city_name",
+                "type": "string"
+              },
+              {
+                "name": "community__area_id",
+                "type": "string"
+              },
+              {
+                "name": "community__address",
+                "type": "string"
+              },
+              {
+                "name": "community__intro",
+                "type": "string"
+              },
+              {
+                "name": "community__status",
+                "type": "string"
+              },
+              {
+                "name": "community__category",
+                "type": "string"
+              },
+              {
+                "name": "community__project_guid",
+                "type": "string"
+              },
+              {
+                "name": "community__sort",
+                "type": "string"
+              },
+              {
+                "name": "community__qrcode_url",
+                "type": "string"
+              },
+              {
+                "name": "community__longitude",
+                "type": "string"
+              },
+              {
+                "name": "community__latitude",
+                "type": "string"
+              },
+              {
+                "name": "community__admin_id",
+                "type": "string"
+              },
+              {
+                "name": "community__type",
+                "type": "string"
+              },
+              {
+                "name": "community__building_area",
+                "type": "string"
+              },
+              {
+                "name": "community__practical_area",
+                "type": "string"
+              },
+              {
+                "name": "community__type_desc",
+                "type": "string"
+              },
+              {
+                "name": "community__logo_url",
+                "type": "string"
+              },
+              {
+                "name": "community__background_url",
+                "type": "string"
+              },
+              {
+                "name": "community__topic_audit",
+                "type": "string"
+              },
+              {
+                "name": "community__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "community__cid",
+                "type": "string"
+              },
+              {
+                "name": "community__weixin",
+                "type": "string"
+              },
+              {
+                "name": "community__property_company",
+                "type": "string"
+              },
+              {
+                "name": "community__business_person",
+                "type": "string"
+              },
+              {
+                "name": "community__business_phone",
+                "type": "string"
+              },
+              {
+                "name": "community__business_email",
+                "type": "string"
+              },
+              {
+                "name": "community__pinyin",
+                "type": "string"
+              },
+              {
+                "name": "community__sync_flag",
                 "type": "tinyint"
               },
               {
-                "name": "community_update_time",
+                "name": "community__update_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "area_id",
+                "name": "area__id",
                 "type": "string"
               },
               {
-                "name": "area_name",
+                "name": "area__name",
                 "type": "string"
               },
               {
-                "name": "parent_id",
+                "name": "area__parent_id",
                 "type": "string"
               },
               {
-                "name": "short_name",
+                "name": "area__short_name",
                 "type": "string"
               },
               {
-                "name": "level_type",
+                "name": "area__level_type",
                 "type": "tinyint"
               },
               {
-                "name": "city_code",
+                "name": "area__city_code",
                 "type": "string"
               },
               {
-                "name": "zipcode",
+                "name": "area__zipcode",
                 "type": "string"
               },
               {
-                "name": "merger_name",
+                "name": "area__merger_name",
                 "type": "string"
               },
               {
-                "name": "lng",
+                "name": "area__lng",
                 "type": "double"
               },
               {
-                "name": "lat",
+                "name": "area__lat",
                 "type": "double"
               },
               {
-                "name": "area_pinyin",
+                "name": "area__pinyin",
                 "type": "string"
               },
               {
-                "name": "rel_id",
+                "name": "open_store_good__id",
                 "type": "string"
               },
               {
-                "name": "current_single_price",
+                "name": "open_store_good__service_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good__code",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good__name",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good__short_detail",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good__pre_price",
                 "type": "double"
               },
               {
-                "name": "amount",
-                "type": "int"
-              },
-              {
-                "name": "good_code",
-                "type": "string"
-              },
-              {
-                "name": "good_img_url",
-                "type": "string"
-              },
-              {
-                "name": "rel_verify_times",
-                "type": "int"
-              },
-              {
-                "name": "rel_verify_start_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "rel_verify_end_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "rel_pay_status",
-                "type": "string"
-              },
-              {
-                "name": "good_id",
-                "type": "string"
-              },
-              {
-                "name": "code",
-                "type": "string"
-              },
-              {
-                "name": "good_name",
-                "type": "string"
-              },
-              {
-                "name": "short_detail",
-                "type": "string"
-              },
-              {
-                "name": "pre_price",
+                "name": "open_store_good__price",
                 "type": "double"
               },
               {
-                "name": "price",
+                "name": "open_store_good__pic_url",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good__status",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_store_good__update_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_store_good__stock",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good__sale_amount",
+                "type": "int"
+              },
+              {
+                "name": "open_store_good__category_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good__verify_times",
+                "type": "int"
+              },
+              {
+                "name": "open_store_good__verify_start_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_store_good__verify_end_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_store_good_order_rel__id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good_order_rel__order_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good_order_rel__good_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good_order_rel__current_single_price",
                 "type": "double"
               },
               {
-                "name": "pic_url",
-                "type": "string"
-              },
-              {
-                "name": "good_status",
-                "type": "string"
-              },
-              {
-                "name": "good_create_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "good_update_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "stock",
-                "type": "string"
-              },
-              {
-                "name": "sale_amount",
+                "name": "open_store_good_order_rel__amount",
                 "type": "int"
               },
               {
-                "name": "good_category_id",
+                "name": "open_store_good_order_rel__good_name",
                 "type": "string"
               },
               {
-                "name": "good_verify_times",
+                "name": "open_store_good_order_rel__good_code",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good_order_rel__good_img_url",
+                "type": "string"
+              },
+              {
+                "name": "open_store_good_order_rel__verify_times",
                 "type": "int"
               },
               {
-                "name": "good_verify_start_time",
+                "name": "open_store_good_order_rel__verify_start_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "good_verify_end_time",
+                "name": "open_store_good_order_rel__verify_end_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "cart_id",
+                "name": "open_store_good_order_rel__pay_status",
                 "type": "string"
               },
               {
-                "name": "cart_amount",
+                "name": "open_store_shopping_cart__id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_shopping_cart__service_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_shopping_cart__user_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_shopping_cart__open_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_shopping_cart__good_id",
+                "type": "string"
+              },
+              {
+                "name": "open_store_shopping_cart__amount",
                 "type": "int"
               },
               {
-                "name": "cart_valid_status",
+                "name": "open_store_shopping_cart__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "open_store_shopping_cart__valid_status",
                 "type": "string"
               }
             ]
           },
           "listDelimiter": "|",
           "columns": [
-            "order_id",
-            "user_id",
-            "open_id",
-            "community_id",
-            "addr_info_id",
-            "addr_info",
-            "addr_detail",
-            "user_name",
-            "mobile",
-            "order_code",
-            "out_trade_no",
-            "express_money",
-            "goods_total",
-            "original_price",
-            "discount_price",
-            "total_amount",
-            "coupon_price",
-            "verify_status",
-            "subject",
-            "body",
-            "detail",
-            "express_type",
-            "express_name",
-            "express_code",
-            "express_time",
-            "express_area",
-            "express_phone",
-            "order_pay_status",
-            "pay_channel",
-            "send_status",
-            "send_time",
-            "refund_time",
-            "refund_status",
-            "refund_approval",
-            "refund_comment",
-            "refund_remark",
-            "result_status",
-            "same_way",
-            "open_refund_id",
-            "order_create_time",
-            "invalid_time",
-            "confirm_time",
-            "resource_type",
-            "coupon_record_id",
-            "order_type",
-            "xfsj_id",
-            "order_remark",
-            "service_id",
-            "service_title",
-            "service_png",
-            "disable_png",
-            "reorder",
-            "clause",
-            "service_type",
-            "is_account",
-            "service_link",
-            "provide_type",
-            "service_status",
-            "service_app_id",
-            "description",
-            "audit_comment",
-            "service_create_time",
-            "service_update_time",
-            "audit_time",
-            "is_need_hardware",
-            "service_target_month_turnover",
-            "paid_caution_money",
-            "caution_money_status",
-            "ground_mode",
-            "service_account_id",
-            "audit_status",
-            "clause_id",
-            "app_secret",
-            "receivable_caution_money",
-            "recommend_level",
-            "caution_money_type",
-            "caution_money_pic",
-            "service_remark",
-            "caution_bill_id",
-            "commission_rate",
-            "user_range",
-            "ground_audit_status",
-            "shot",
-            "account_receivable_project",
-            "notify_url",
-            "balance_receive_email",
-            "under_reason",
-            "ground_time",
-            "max_ios_version",
-            "min_ios_version",
-            "max_andoird_version",
-            "min_andoird_version",
-            "service_need",
-            "merchant_id",
-            "email",
-            "merchant_type",
-            "merchant_title",
-            "title_simple",
-            "introduction",
-            "business_scope",
-            "merchant_create_time",
-            "merchant_update_time",
-            "registration_number",
-            "business_license",
-            "is_other_license",
-            "other_license",
-            "merchant_target_month_turnover",
-            "contact_person",
-            "contact_phone",
-            "province_area_id",
-            "city_area_id",
-            "merchant_area_id",
-            "area_info",
-            "merchant_status",
-            "status_content",
-            "bank_title",
-            "bank_account_name",
-            "bank_account",
-            "id_number",
-            "id_positive",
-            "id_obverse",
-            "platform_fee",
-            "mch_id",
-            "merchant_account_id",
-            "merchant_xfsj_status",
-            "legal_name",
-            "legal_id_card",
-            "legal_id_positive",
-            "legal_id_back",
-            "src_business",
-            "src_city",
-            "is_mandatary",
-            "mandatary_name",
-            "mandatary_id_card",
-            "mandatary_id_positive",
-            "mandatary_id_back",
-            "mandatary_other",
-            "category_id",
-            "category_name",
-            "category_create_time",
-            "category_type",
-            "category_sort",
-            "exposure",
-            "pid",
-            "category_link",
-            "category_png",
-            "community_fee",
-            "premium_num",
-            "category_valid_status",
-            "develop_type",
-            "templete_name",
-            "templete_status",
-            "app_index_sort",
-            "app_cat_sort",
-            "rfchina_code",
-            "caution_refund_status",
-            "caution_refund_reason",
-            "detail_xfsj_status",
-            "category_second_type",
-            "protocol_url",
-            "verify_role",
-            "community_name",
-            "phone",
-            "tel",
-            "city_id",
-            "city_name",
-            "address",
-            "intro",
-            "community_status",
-            "category",
-            "project_guid",
-            "community_sort",
-            "qrcode_url",
-            "longitude",
-            "latitude",
-            "admin_id",
-            "community_type",
-            "building_area",
-            "practical_area",
-            "type_desc",
-            "logo_url",
-            "background_url",
-            "topic_audit",
-            "community_create_time",
-            "cid",
-            "weixin",
-            "property_company",
-            "business_person",
-            "business_phone",
-            "business_email",
-            "community_pinyin",
-            "sync_flag",
-            "community_update_time",
-            "area_id",
-            "area_name",
-            "parent_id",
-            "short_name",
-            "level_type",
-            "city_code",
-            "zipcode",
-            "merger_name",
-            "lng",
-            "lat",
-            "area_pinyin",
-            "rel_id",
-            "current_single_price",
-            "amount",
-            "good_code",
-            "good_img_url",
-            "rel_verify_times",
-            "rel_verify_start_time",
-            "rel_verify_end_time",
-            "rel_pay_status",
-            "good_id",
-            "code",
-            "good_name",
-            "short_detail",
-            "pre_price",
-            "price",
-            "pic_url",
-            "good_status",
-            "good_create_time",
-            "good_update_time",
-            "stock",
-            "sale_amount",
-            "good_category_id",
-            "good_verify_times",
-            "good_verify_start_time",
-            "good_verify_end_time",
-            "cart_id",
-            "cart_amount",
-            "cart_valid_status"
+            "open_order__id",
+            "open_order__total_id",
+            "open_order__account_id",
+            "open_order__community_id",
+            "open_order__app_id",
+            "open_order__service_id",
+            "open_order__uid",
+            "open_order__caution_id",
+            "open_order__pay_channel",
+            "open_order__out_trade_no",
+            "open_order__client_ip",
+            "open_order__project_type",
+            "open_order__trade_type",
+            "open_order__weixin_open_id",
+            "open_order__expire_time",
+            "open_order__bussiness_type",
+            "open_order__create_time",
+            "open_order__update_time",
+            "open_order__bill_status",
+            "open_order__bill_id",
+            "open_order__bill_create_time",
+            "open_order__community_trade_no",
+            "open_order__bill_finished_time",
+            "open_order__total_amount",
+            "open_order__platform_charge",
+            "open_order__platform_charge_rate",
+            "open_order__service_charge",
+            "open_order__service_charge_rate",
+            "open_order__receipt_amount",
+            "open_order__tixian_thrid",
+            "open_order__tixian_community",
+            "open_order__refund_status",
+            "open_order__refund_reason",
+            "open_order__refund_id",
+            "open_order__refund_remark",
+            "open_order__refund_create_time",
+            "open_order__refund_money",
+            "open_order__refund_bill_id",
+            "open_order__refund_account_id",
+            "open_order__same_way",
+            "open_order__withdraw_status",
+            "open_order__type",
+            "open_order__service_charge_status",
+            "open_order__balance_status",
+            "open_order__service_charge_bill_id",
+            "open_order__service_account",
+            "open_order__service_account_mchid",
+            "open_order__merchant_bill_id",
+            "open_order__bill_split_status",
+            "open_order__bill_split_time",
+            "open_order__split_amount",
+            "open_order__open_id",
+            "open_order__out_status",
+            "open_order__out_status_content",
+            "open_order__settle_id",
+            "open_order__pf_balance_status",
+            "open_order__pf_bussiness_balance_status",
+            "open_order__pf_refund_status",
+            "open_order__pf_refund_time",
+            "open_order__subject",
+            "open_order__body",
+            "open_order__detail",
+            "open_order__goods_detail",
+            "open_store_order__id",
+            "open_store_order__user_id",
+            "open_store_order__open_id",
+            "open_store_order__community_id",
+            "open_store_order__service_id",
+            "open_store_order__addr_info_id",
+            "open_store_order__addr_info",
+            "open_store_order__addr_detail",
+            "open_store_order__user_name",
+            "open_store_order__mobile",
+            "open_store_order__order_code",
+            "open_store_order__out_trade_no",
+            "open_store_order__express_money",
+            "open_store_order__goods_total",
+            "open_store_order__original_price",
+            "open_store_order__discount_price",
+            "open_store_order__total_amount",
+            "open_store_order__coupon_price",
+            "open_store_order__verify_status",
+            "open_store_order__subject",
+            "open_store_order__body",
+            "open_store_order__detail",
+            "open_store_order__express_type",
+            "open_store_order__express_name",
+            "open_store_order__express_code",
+            "open_store_order__express_time",
+            "open_store_order__express_area",
+            "open_store_order__express_phone",
+            "open_store_order__pay_status",
+            "open_store_order__pay_channel",
+            "open_store_order__send_status",
+            "open_store_order__send_time",
+            "open_store_order__refund_time",
+            "open_store_order__refund_status",
+            "open_store_order__refund_approval",
+            "open_store_order__refund_comment",
+            "open_store_order__refund_remark",
+            "open_store_order__result_status",
+            "open_store_order__same_way",
+            "open_store_order__open_refund_id",
+            "open_store_order__create_time",
+            "open_store_order__invalid_time",
+            "open_store_order__confirm_time",
+            "open_store_order__resource_type",
+            "open_store_order__coupon_record_id",
+            "open_store_order__type",
+            "open_store_order__xfsj_id",
+            "open_store_order__remark",
+            "open_quick_order__id",
+            "open_quick_order__uid",
+            "open_quick_order__community_id",
+            "open_quick_order__service_id",
+            "open_quick_order__total_money",
+            "open_quick_order__subtract_money",
+            "open_quick_order__coupon_money",
+            "open_quick_order__real_money",
+            "open_quick_order__coupon_id",
+            "open_quick_order__bill_status",
+            "open_quick_order__out_trade_no",
+            "open_quick_order__community_trade_no",
+            "open_quick_order__bill_id",
+            "open_quick_order__create_time",
+            "open_quick_order__pay_time",
+            "community_service__id",
+            "community_service__title",
+            "community_service__png",
+            "community_service__disable_png",
+            "community_service__reorder",
+            "community_service__clause",
+            "community_service__type",
+            "community_service__is_account",
+            "community_service__link",
+            "community_service__provide_type",
+            "community_service__status",
+            "community_service__app_id",
+            "community_service__description",
+            "community_service__audit_comment",
+            "community_service__create_time",
+            "community_service__update_time",
+            "community_service__audit_time",
+            "community_service__category_id",
+            "community_service__is_need_hardware",
+            "community_service__target_month_turnover",
+            "community_service__paid_caution_money",
+            "community_service__caution_money_status",
+            "community_service__ground_mode",
+            "community_service__merchant_id",
+            "community_service__account_id",
+            "community_service__audit_status",
+            "community_service__clause_id",
+            "community_service__app_secret",
+            "community_service__receivable_caution_money",
+            "community_service__recommend_level",
+            "community_service__caution_money_type",
+            "community_service__caution_money_pic",
+            "community_service__remark",
+            "community_service__caution_bill_id",
+            "community_service__commission_rate",
+            "community_service__user_range",
+            "community_service__ground_audit_status",
+            "community_service__shot",
+            "community_service__account_receivable_project",
+            "community_service__notify_url",
+            "community_service__balance_receive_email",
+            "community_service__under_reason",
+            "community_service__ground_time",
+            "community_service__max_ios_version",
+            "community_service__min_ios_version",
+            "community_service__max_andoird_version",
+            "community_service__min_andoird_version",
+            "community_service__service_need",
+            "open_merchant_info__id",
+            "open_merchant_info__email",
+            "open_merchant_info__type",
+            "open_merchant_info__title",
+            "open_merchant_info__title_simple",
+            "open_merchant_info__introduction",
+            "open_merchant_info__business_scope",
+            "open_merchant_info__create_time",
+            "open_merchant_info__update_time",
+            "open_merchant_info__registration_number",
+            "open_merchant_info__business_license",
+            "open_merchant_info__is_other_license",
+            "open_merchant_info__other_license",
+            "open_merchant_info__target_month_turnover",
+            "open_merchant_info__contact_person",
+            "open_merchant_info__contact_phone",
+            "open_merchant_info__province_area_id",
+            "open_merchant_info__city_area_id",
+            "open_merchant_info__area_id",
+            "open_merchant_info__area_info",
+            "open_merchant_info__status",
+            "open_merchant_info__status_content",
+            "open_merchant_info__bank_title",
+            "open_merchant_info__bank_account_name",
+            "open_merchant_info__bank_account",
+            "open_merchant_info__id_number",
+            "open_merchant_info__id_positive",
+            "open_merchant_info__id_obverse",
+            "open_merchant_info__platform_fee",
+            "open_merchant_info__mch_id",
+            "open_merchant_info__account_id",
+            "open_merchant_info__xfsj_status",
+            "open_merchant_info__legal_name",
+            "open_merchant_info__legal_id_card",
+            "open_merchant_info__legal_id_positive",
+            "open_merchant_info__legal_id_back",
+            "open_merchant_info__src_business",
+            "open_merchant_info__src_city",
+            "open_merchant_info__is_mandatary",
+            "open_merchant_info__mandatary_name",
+            "open_merchant_info__mandatary_id_card",
+            "open_merchant_info__mandatary_id_positive",
+            "open_merchant_info__mandatary_id_back",
+            "open_merchant_info__mandatary_other",
+            "community_service_category__id",
+            "community_service_category__name",
+            "community_service_category__create_time",
+            "community_service_category__type",
+            "community_service_category__sort",
+            "community_service_category__exposure",
+            "community_service_category__pid",
+            "community_service_category__link",
+            "community_service_category__png",
+            "community_service_category__community_fee",
+            "community_service_category__premium_num",
+            "community_service_category__valid_status",
+            "open_service_detail__service_id",
+            "open_service_detail__develop_type",
+            "open_service_detail__templete_name",
+            "open_service_detail__templete_status",
+            "open_service_detail__app_index_sort",
+            "open_service_detail__app_cat_sort",
+            "open_service_detail__rfchina_code",
+            "open_service_detail__caution_refund_status",
+            "open_service_detail__caution_refund_reason",
+            "open_service_detail__xfsj_status",
+            "open_service_detail__category_second_type",
+            "open_service_detail__protocol_url",
+            "open_service_detail__verify_role",
+            "community__id",
+            "community__name",
+            "community__phone",
+            "community__tel",
+            "community__city_id",
+            "community__city_name",
+            "community__area_id",
+            "community__address",
+            "community__intro",
+            "community__status",
+            "community__category",
+            "community__project_guid",
+            "community__sort",
+            "community__qrcode_url",
+            "community__longitude",
+            "community__latitude",
+            "community__admin_id",
+            "community__type",
+            "community__building_area",
+            "community__practical_area",
+            "community__type_desc",
+            "community__logo_url",
+            "community__background_url",
+            "community__topic_audit",
+            "community__create_time",
+            "community__cid",
+            "community__weixin",
+            "community__property_company",
+            "community__business_person",
+            "community__business_phone",
+            "community__business_email",
+            "community__pinyin",
+            "community__sync_flag",
+            "community__update_time",
+            "area__id",
+            "area__name",
+            "area__parent_id",
+            "area__short_name",
+            "area__level_type",
+            "area__city_code",
+            "area__zipcode",
+            "area__merger_name",
+            "area__lng",
+            "area__lat",
+            "area__pinyin",
+            "open_store_good__id",
+            "open_store_good__service_id",
+            "open_store_good__code",
+            "open_store_good__name",
+            "open_store_good__short_detail",
+            "open_store_good__pre_price",
+            "open_store_good__price",
+            "open_store_good__pic_url",
+            "open_store_good__status",
+            "open_store_good__create_time",
+            "open_store_good__update_time",
+            "open_store_good__stock",
+            "open_store_good__sale_amount",
+            "open_store_good__category_id",
+            "open_store_good__verify_times",
+            "open_store_good__verify_start_time",
+            "open_store_good__verify_end_time",
+            "open_store_good_order_rel__id",
+            "open_store_good_order_rel__order_id",
+            "open_store_good_order_rel__good_id",
+            "open_store_good_order_rel__current_single_price",
+            "open_store_good_order_rel__amount",
+            "open_store_good_order_rel__good_name",
+            "open_store_good_order_rel__good_code",
+            "open_store_good_order_rel__good_img_url",
+            "open_store_good_order_rel__verify_times",
+            "open_store_good_order_rel__verify_start_time",
+            "open_store_good_order_rel__verify_end_time",
+            "open_store_good_order_rel__pay_status",
+            "open_store_shopping_cart__id",
+            "open_store_shopping_cart__service_id",
+            "open_store_shopping_cart__user_id",
+            "open_store_shopping_cart__open_id",
+            "open_store_shopping_cart__good_id",
+            "open_store_shopping_cart__amount",
+            "open_store_shopping_cart__create_time",
+            "open_store_shopping_cart__valid_status"
           ]
         }
       },
       "granularitySpec": {
         "intervals": [
-          "2010-01-01/2019-01-01"
+          "1000/2020"
         ],
         "segmentGranularity": "MONTH",
         "queryGranularity": "NONE",

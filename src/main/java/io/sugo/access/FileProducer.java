@@ -18,6 +18,7 @@ import java.util.Map;
 public class FileProducer {
 
 	static BufferedWriter bufferedWriter = null;
+	static int count = 0;
 
 	public static void writeToLocal(File file, String item, ColumnType columnType) throws IOException {
 		if(bufferedWriter == null) {
@@ -31,7 +32,7 @@ public class FileProducer {
 		Map<String, String> nameTypeMap = columnType.getNameTypeMap();
 		List<String> nameList = Lists.newArrayList(columnType.getNameTypeMap().keySet());
 
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
 		for (int i = 0; i < strs.length; i++) {
@@ -41,8 +42,10 @@ public class FileProducer {
 					try {
 						strs[i] = String.valueOf(format.parse(strs[i]).getTime());
 					} catch (ParseException e) {
-						System.out.println(strs[i]);
-						System.out.println(Joiner.on("|").join(strs));
+						count++;
+						break;
+//						System.out.println(strs[i]);
+//						System.out.println(Joiner.on("|").join(strs));
 					}
 				} else {
 					strs[i] = "0";
@@ -58,5 +61,6 @@ public class FileProducer {
 			bufferedWriter.flush();
 			bufferedWriter.close();
 		}
+		System.out.println("unparseable: " + count);
 	}
 }

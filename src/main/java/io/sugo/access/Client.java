@@ -35,13 +35,13 @@ public class Client {
 
 	public static void addAndUpdate(String name) throws Exception {
 		add(name);
-		update(name);
+//		update(name);
 
 		MyHttpConnection.postData("http://192.168.0.223:8090/druid/indexer/v1/task",
 						FileUtils.readFileToString(new File(String.format("resource/task/%s-%s.json", name, "add"))));
 
-		MyHttpConnection.postData("http://192.168.0.223:8090/druid/indexer/v1/task",
-						FileUtils.readFileToString(new File(String.format("resource/task/%s-%s.json", name, "update"))));
+//		MyHttpConnection.postData("http://192.168.0.223:8090/druid/indexer/v1/task",
+//						FileUtils.readFileToString(new File(String.format("resource/task/%s-%s.json", name, "update"))));
 	}
 
 	public static void add(String name) throws Exception {
@@ -74,6 +74,7 @@ public class Client {
 		}
 		RemoteIterator<LocatedFileStatus> listFiles = fs.listFiles(new Path(hivePath), true);
 
+		int lineCount = 0;
 		while (listFiles.hasNext()) {
 			LocatedFileStatus next = listFiles.next();
 			String fileName = next.getPath().getName();
@@ -86,11 +87,14 @@ public class Client {
 				BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
 				String str;
+
 				while ((str = reader.readLine()) != null) {
+					lineCount++;
 					FileProducer.writeToLocal(dataFile, str, columnType);
 				}
 			}
 		}
+		System.out.println("Total line count:" + lineCount);
 		FileProducer.finish();
 
 		scpUtil.putFile(dataFile.getPath(), "/data1/csv");

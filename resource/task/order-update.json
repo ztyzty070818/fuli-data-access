@@ -5,7 +5,7 @@
     "order_create_time"
   ],
   "dataSchema": {
-    "dataSource": "tindex_r1aJyE6dM_project_l3fdXSPRWD",
+    "dataSource": "tindex_r1aJyE6dM_project_FDEI4CpVZ",
     "parser": {
       "type": "map",
       "parseSpec": {

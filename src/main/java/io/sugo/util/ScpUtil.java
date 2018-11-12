@@ -33,7 +33,7 @@ public class ScpUtil {
 			if (!isAuthenticated)
 				throw new IOException("Authentication failed.文件scp到数据服务器时发生异常");
 			SCPClient client = new SCPClient(conn);
-			client.put(localFile, destDir);
+			client.put(localFile, destDir, "0664");
 			conn.close();
 		} catch (IOException e) {
 			e.printStackTrace();
