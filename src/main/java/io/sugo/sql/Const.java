@@ -475,23 +475,25 @@ public class Const {
 //		printColumnStr(ImmutableMap.<String, String>of("open_store_shopping_cart", "null"));
 
 
-		printColumnStr(ImmutableMap.<String, String>builder()
-						.put("open_store_shopping_cart", "all")
-						.put("open_store_good", "all")
-						.put("community_service", "all")
-						.put("open_merchant_info", "all")
-						.put("community_service_category", "all")
-						.put("open_service_detail", "all")
+//		printColumnStr(ImmutableMap.<String, String>builder()
+//						.put("open_store_shopping_cart", "all")
+//						.put("open_store_good", "all")
+//						.put("community_service", "all")
+//						.put("open_merchant_info", "all")
+//						.put("community_service_category", "all")
+//						.put("open_service_detail", "all")
+//
+//						.put("community", "null")
+//						.put("area", "null")
+//						.put("open_order", "null")
+//						.put("open_store_order", "null")
+//						.put("open_quick_order", "null")
+//						.put("open_store_good_order_rel", "null")
+//						.build()
+//		);
 
-						.put("community", "null")
-						.put("area", "null")
-						.put("open_order", "null")
-						.put("open_store_order", "null")
-						.put("open_quick_order", "null")
-						.put("open_store_good_order_rel", "null")
-						.build()
-		);
-
-
+		for(String name : getMap().keySet())
+		System.out.println(name);
 	}
+
 }

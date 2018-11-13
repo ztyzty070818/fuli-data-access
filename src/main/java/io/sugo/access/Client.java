@@ -37,8 +37,8 @@ public class Client {
 		add(name);
 //		update(name);
 
-		MyHttpConnection.postData("http://192.168.0.223:8090/druid/indexer/v1/task",
-						FileUtils.readFileToString(new File(String.format("resource/task/%s-%s.json", name, "add"))));
+//		MyHttpConnection.postData("http://192.168.0.223:8090/druid/indexer/v1/task",
+//						FileUtils.readFileToString(new File(String.format("resource/task/%s-%s.json", name, "add"))));
 
 //		MyHttpConnection.postData("http://192.168.0.223:8090/druid/indexer/v1/task",
 //						FileUtils.readFileToString(new File(String.format("resource/task/%s-%s.json", name, "update"))));
