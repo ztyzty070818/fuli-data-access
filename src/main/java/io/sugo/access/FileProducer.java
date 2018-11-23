@@ -2,6 +2,9 @@ package io.sugo.access;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -20,14 +23,17 @@ public class FileProducer {
 	static BufferedWriter bufferedWriter = null;
 	static int count = 0;
 
-	public static void writeToLocal(File file, String item, ColumnType columnType) throws IOException {
-		if(bufferedWriter == null) {
-			bufferedWriter = new BufferedWriter(new FileWriter(file, true));
-		}
+	private static final Logger logger = LoggerFactory.getLogger(FileProducer.class);
 
-//		System.out.println(item);
+	public FileProducer(File file) throws IOException {
+		this.bufferedWriter = new BufferedWriter(new FileWriter(file, true));
+	}
 
-		String[] strs = item.replaceAll("\\\\N", "").replaceAll("null", "").split("\001", -1);
+
+
+	public void writeToLocal(String item, ColumnType columnType) throws IOException {
+
+		String[] strs = item.replaceAll("\\\\N", "null").split("\001", -1);
 
 		Map<String, String> nameTypeMap = columnType.getNameTypeMap();
 		List<String> nameList = Lists.newArrayList(columnType.getNameTypeMap().keySet());
@@ -36,31 +42,34 @@ public class FileProducer {
 
 
 		for (int i = 0; i < strs.length; i++) {
-			if (nameTypeMap.get(nameList.get(i)).equals("date")) {
+			String type = nameTypeMap.get(nameList.get(i));
+			if (type.equals("date")) {
 				String dateStr = strs[i];
-				if (dateStr.length() > 0) {
+				if (dateStr.length() > 0 && !dateStr.equals("null")) {
 					try {
 						strs[i] = String.valueOf(format.parse(strs[i]).getTime());
 					} catch (ParseException e) {
 						count++;
 						break;
-//						System.out.println(strs[i]);
-//						System.out.println(Joiner.on("|").join(strs));
 					}
 				} else {
 					strs[i] = "0";
 				}
+			} else if (type.equals("int") || type.equals("double") || type.equals("float")) {
+				String dataStr = strs[i];
+				if (StringUtils.isBlank(dataStr) || dataStr.equals("null")) {
+					strs[i] = "0";
+				}
 			}
 		}
-		bufferedWriter.write(Joiner.on("|").join(strs) + "\n");
-//				System.out.println(nameList.get(i) + "\t" + nameTypeMap.get(nameList.get(i)) + "\t" + strs[i]);
+		bufferedWriter.write(Joiner.on("\u0001").join(strs) + "\n");
 	}
 
-	public static void finish() throws IOException {
+	public void finish() throws IOException {
 		if(bufferedWriter != null) {
 			bufferedWriter.flush();
 			bufferedWriter.close();
 		}
-		System.out.println("unparseable: " + count);
+		logger.info("unparseable: " + count);
 	}
 }

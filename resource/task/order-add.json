@@ -3,11 +3,11 @@
   "worker": "dev224.sugo.net:8091",
   "spec": {
     "dataSchema": {
-      "dataSource": "tindex_r1aJyE6dM_project_FDEI4CpVZ",
+      "dataSource": "tindex_HJTeE6YmQ_project_kz8rrUAMrn",
       "metricsSpec": [],
       "parser": {
         "parseSpec": {
-          "format": "csv",
+          "format": "tsv",
           "timestampSpec": {
             "column": "open_order__create_time",
             "format": "millis"
@@ -1194,7 +1194,8 @@
               }
             ]
           },
-          "listDelimiter": "|",
+          "delimiter": "\u0001",
+          "listDelimiter": "\u0002",
           "columns": [
             "open_order__id",
             "open_order__total_id",
@@ -1501,7 +1502,7 @@
       "firehose": {
         "type": "local",
         "filter": "order-add.csv",
-        "baseDir": "/data1/csv/"
+        "baseDir": "/tmp/"
       }
     },
     "tuningConfig": {

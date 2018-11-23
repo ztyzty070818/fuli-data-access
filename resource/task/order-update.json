@@ -2,16 +2,18 @@
   "type": "update_default",
   "data": [],
   "filterColumns": [
-    "order_create_time"
+    "open_order__id",
+    "open_store_order__id",
+    "open_quick_order__id"
   ],
   "dataSchema": {
-    "dataSource": "tindex_r1aJyE6dM_project_FDEI4CpVZ",
+    "dataSource": "tindex_HJTeE6YmQ_project_kz8rrUAMrn",
     "parser": {
       "type": "map",
       "parseSpec": {
         "format": "json",
         "timestampSpec": {
-          "column": "order_create_time",
+          "column": "open_order__create_time",
           "format": "millis"
         },
         "dimensionsSpec": {

@@ -30,10 +30,16 @@ public class ColumnType {
 
 		String accessJson = FileUtils.readFileToString(jsonFile);
 		JSONObject jsonObject = new JSONObject(accessJson);
-		JSONObject parseSpec = jsonObject.getJSONObject("spec").getJSONObject("dataSchema").getJSONObject("parser").getJSONObject("parseSpec");
-		JSONObject dimensionsSpec = parseSpec.getJSONObject("dimensionsSpec");
 
-		parseSpec.put("columns", new JSONArray(getNameTypeMap().keySet()));
+		JSONObject parseSpec;
+		if(type.equals("update")) {
+			parseSpec = jsonObject.getJSONObject("dataSchema").getJSONObject("parser").getJSONObject("parseSpec");
+		} else {
+			parseSpec = jsonObject.getJSONObject("spec").getJSONObject("dataSchema").getJSONObject("parser").getJSONObject("parseSpec");
+			parseSpec.put("columns", new JSONArray(getNameTypeMap().keySet()));
+		}
+
+		JSONObject dimensionsSpec = parseSpec.getJSONObject("dimensionsSpec");
 		dimensionsSpec.put("dimensions", new JSONArray(getDimensionList()));
 
 		FileUtils.writeStringToFile(jsonFile, jsonObject.toString(2));
@@ -63,7 +69,7 @@ public class ColumnType {
 		return map;
 	}
 
-	public List<Map<String, String>> getDimensionList() {
+	public  List<Map<String, String>> getDimensionList() {
 		List<Map<String, String>> dimensionList = new ArrayList<>();
 		Map<String, String> nameTypeMap = getNameTypeMap();
 		for(String dimension : nameTypeMap.keySet()) {

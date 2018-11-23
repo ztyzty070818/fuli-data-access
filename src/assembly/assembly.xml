@@ -18,6 +18,7 @@
                 <include>*.properties</include>
                 <include>resource/**</include>
                 <include>*.sh</include>
+                <include>conf/**</include>
             </includes>
         </fileSet>
         <fileSet>

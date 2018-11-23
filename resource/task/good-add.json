@@ -3,11 +3,11 @@
   "worker": "dev224.sugo.net:8091",
   "spec": {
     "dataSchema": {
-      "dataSource": "tindex_r1aJyE6dM_project_IEG98xDwO",
+      "dataSource": "tindex_HJTeE6YmQ_project_fJi5lWvGy",
       "metricsSpec": [],
       "parser": {
         "parseSpec": {
-          "format": "csv",
+          "format": "tsv",
           "timestampSpec": {
             "column": "open_order__create_time",
             "format": "millis"
@@ -119,7 +119,7 @@
               },
               {
                 "name": "open_order__platform_charge",
-                "type": "string"
+                "type": "double"
               },
               {
                 "name": "open_order__platform_charge_rate",
@@ -127,11 +127,11 @@
               },
               {
                 "name": "open_order__service_charge",
-                "type": "string"
+                "type": "double"
               },
               {
                 "name": "open_order__service_charge_rate",
-                "type": "string"
+                "type": "double"
               },
               {
                 "name": "open_order__receipt_amount",
@@ -330,15 +330,15 @@
               },
               {
                 "name": "open_store_order__goods_total",
-                "type": "string"
+                "type": "double"
               },
               {
                 "name": "open_store_order__original_price",
-                "type": "string"
+                "type": "double"
               },
               {
                 "name": "open_store_order__discount_price",
-                "type": "string"
+                "type": "double"
               },
               {
                 "name": "open_store_order__total_amount",
@@ -346,7 +346,7 @@
               },
               {
                 "name": "open_store_order__coupon_price",
-                "type": "string"
+                "type": "double"
               },
               {
                 "name": "open_store_order__verify_status",
@@ -432,7 +432,7 @@
               },
               {
                 "name": "open_store_order__same_way",
-                "type": "double"
+                "type": "string"
               },
               {
                 "name": "open_store_order__open_refund_id",
@@ -491,11 +491,11 @@
               },
               {
                 "name": "open_quick_order__total_money",
-                "type": "string"
+                "type": "double"
               },
               {
                 "name": "open_quick_order__subtract_money",
-                "type": "string"
+                "type": "double"
               },
               {
                 "name": "open_quick_order__coupon_money",
@@ -503,7 +503,7 @@
               },
               {
                 "name": "open_quick_order__real_money",
-                "type": "string"
+                "type": "double"
               },
               {
                 "name": "open_quick_order__coupon_id",
@@ -537,7 +537,7 @@
               },
               {
                 "name": "community_service__id",
-                "type": "double"
+                "type": "string"
               },
               {
                 "name": "community_service__title",
@@ -1191,165 +1191,11 @@
               {
                 "name": "area__pinyin",
                 "type": "string"
-              },
-              {
-                "name": "open_store_good__id",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good__service_id",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good__code",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good__name",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good__short_detail",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good__pre_price",
-                "type": "double"
-              },
-              {
-                "name": "open_store_good__price",
-                "type": "double"
-              },
-              {
-                "name": "open_store_good__pic_url",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good__status",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good__create_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "open_store_good__update_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "open_store_good__stock",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good__sale_amount",
-                "type": "int"
-              },
-              {
-                "name": "open_store_good__category_id",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good__verify_times",
-                "type": "int"
-              },
-              {
-                "name": "open_store_good__verify_start_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "open_store_good__verify_end_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "open_store_good_order_rel__id",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good_order_rel__order_id",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good_order_rel__good_id",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good_order_rel__current_single_price",
-                "type": "double"
-              },
-              {
-                "name": "open_store_good_order_rel__amount",
-                "type": "int"
-              },
-              {
-                "name": "open_store_good_order_rel__good_name",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good_order_rel__good_code",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good_order_rel__good_img_url",
-                "type": "string"
-              },
-              {
-                "name": "open_store_good_order_rel__verify_times",
-                "type": "int"
-              },
-              {
-                "name": "open_store_good_order_rel__verify_start_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "open_store_good_order_rel__verify_end_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "open_store_good_order_rel__pay_status",
-                "type": "string"
-              },
-              {
-                "name": "open_store_shopping_cart__id",
-                "type": "string"
-              },
-              {
-                "name": "open_store_shopping_cart__service_id",
-                "type": "string"
-              },
-              {
-                "name": "open_store_shopping_cart__user_id",
-                "type": "string"
-              },
-              {
-                "name": "open_store_shopping_cart__open_id",
-                "type": "string"
-              },
-              {
-                "name": "open_store_shopping_cart__good_id",
-                "type": "string"
-              },
-              {
-                "name": "open_store_shopping_cart__amount",
-                "type": "int"
-              },
-              {
-                "name": "open_store_shopping_cart__create_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "open_store_shopping_cart__valid_status",
-                "type": "string"
               }
             ]
           },
-          "listDelimiter": "|",
+          "delimiter": "\u0001",
+          "listDelimiter": "\u0002",
           "columns": [
             "open_order__id",
             "open_order__total_id",
@@ -1638,44 +1484,7 @@
             "area__merger_name",
             "area__lng",
             "area__lat",
-            "area__pinyin",
-            "open_store_good__id",
-            "open_store_good__service_id",
-            "open_store_good__code",
-            "open_store_good__name",
-            "open_store_good__short_detail",
-            "open_store_good__pre_price",
-            "open_store_good__price",
-            "open_store_good__pic_url",
-            "open_store_good__status",
-            "open_store_good__create_time",
-            "open_store_good__update_time",
-            "open_store_good__stock",
-            "open_store_good__sale_amount",
-            "open_store_good__category_id",
-            "open_store_good__verify_times",
-            "open_store_good__verify_start_time",
-            "open_store_good__verify_end_time",
-            "open_store_good_order_rel__id",
-            "open_store_good_order_rel__order_id",
-            "open_store_good_order_rel__good_id",
-            "open_store_good_order_rel__current_single_price",
-            "open_store_good_order_rel__amount",
-            "open_store_good_order_rel__good_name",
-            "open_store_good_order_rel__good_code",
-            "open_store_good_order_rel__good_img_url",
-            "open_store_good_order_rel__verify_times",
-            "open_store_good_order_rel__verify_start_time",
-            "open_store_good_order_rel__verify_end_time",
-            "open_store_good_order_rel__pay_status",
-            "open_store_shopping_cart__id",
-            "open_store_shopping_cart__service_id",
-            "open_store_shopping_cart__user_id",
-            "open_store_shopping_cart__open_id",
-            "open_store_shopping_cart__good_id",
-            "open_store_shopping_cart__amount",
-            "open_store_shopping_cart__create_time",
-            "open_store_shopping_cart__valid_status"
+            "area__pinyin"
           ]
         }
       },
@@ -1693,7 +1502,7 @@
       "firehose": {
         "type": "local",
         "filter": "good-add.csv",
-        "baseDir": "/data1/csv/"
+        "baseDir": "/tmp/"
       }
     },
     "tuningConfig": {

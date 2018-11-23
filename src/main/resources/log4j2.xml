@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="60">
+  <Properties>
+    <Property name="LOG_DIR" >${sys:log.path}</Property>
+    <Property name="LOG_NAME" >tindex-manager</Property>
+  </Properties>
+
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss} %level [%c{1}:%line] - %msg%n" />
+    </Console>
+
+
+    <RollingRandomAccessFile name="MainFileAppender" fileName="${LOG_DIR}/${LOG_NAME}.log"  filePattern="${LOG_DIR}/${LOG_NAME}_%d{yyyy-MM-dd}.log.gz">
+
+      <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss}{Asia/Shanghai} %level [%c{1}:%line] - %msg%n" />
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+      </Policies>
+      <DefaultRolloverStrategy>
+        <Delete basePath="${LOG_DIR}" maxDepth="1">
+          <IfFileName glob="${LOG_NAME}*.log.gz" />
+          <!--<IfLastModified age="7d" />-->
+          <IfLastModified age="2d" />
+        </Delete>
+      </DefaultRolloverStrategy>
+    </RollingRandomAccessFile>
+
+  </Appenders>
+
+  <Loggers>
+
+    <Root level="info">
+      <AppenderRef ref="Console" />
+      <AppenderRef ref="MainFileAppender" />
+    </Root>
+  </Loggers>
+</Configuration>

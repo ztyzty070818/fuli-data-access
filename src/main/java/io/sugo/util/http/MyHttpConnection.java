@@ -93,7 +93,7 @@ public class MyHttpConnection {
 		return result;
 	}
 
-	public static String getData(String url) {
+	public static String getData(String url) throws IOException {
 		String result = "";
 		// 创建httpClient实例
 		CloseableHttpClient httpClient = getClient();
@@ -114,8 +114,6 @@ public class MyHttpConnection {
 			HttpEntity entity = httpResponse.getEntity();
 			result = EntityUtils.toString(entity);
 		} catch (HttpHostConnectException ignored) {
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 		return result;
 	}
