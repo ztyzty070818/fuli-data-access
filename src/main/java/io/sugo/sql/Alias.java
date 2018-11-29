@@ -6,6 +6,5 @@ package io.sugo.sql;
 public class Alias {
 	public static void main(String[] args) {
 		Const.getMap();
-
 	}
 }

@@ -1,6 +1,6 @@
 {
   "type": "lucene_index",
-  "worker": "dev224.sugo.net:8091",
+  "worker": "",
   "spec": {
     "dataSchema": {
       "dataSource": "tindex_HJTeE6YmQ_project_fJi5lWvGy",

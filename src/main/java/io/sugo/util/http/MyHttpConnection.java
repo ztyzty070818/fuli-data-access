@@ -11,6 +11,9 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -19,6 +22,8 @@ import java.net.URL;
 public class MyHttpConnection {
 
 	static CloseableHttpClient httpClient;
+
+	private static Logger logger = LoggerFactory.getLogger(MyHttpConnection.class);
 
 	public static CloseableHttpClient getClient() {
 		if (httpClient == null) {
@@ -64,6 +69,8 @@ public class MyHttpConnection {
 		// 创建httpClient实例
 		CloseableHttpClient httpClient = getClient();
 
+		logger.info("HTTP POST: \n" + url + "\nDATA: \n" + params);
+
 		// 创建httpPost远程连接实例
 		HttpPost httpPost = new HttpPost(url);
 		// 配置请求参数实例
@@ -98,6 +105,8 @@ public class MyHttpConnection {
 		// 创建httpClient实例
 		CloseableHttpClient httpClient = getClient();
 
+		logger.info("HTTP GET: \n" + url);
+
 		// 创建httpGet远程连接实例
 		HttpGet httpGet = new HttpGet(url);
 		// 配置请求参数实例
@@ -123,6 +132,8 @@ public class MyHttpConnection {
 		// 创建httpClient实例
 		CloseableHttpClient httpClient = getClient();
 
+		logger.info("HTTP DELETE: \n" + url);
+
 		// 创建httpDelete远程连接实例
 		HttpDelete httpDelete = new HttpDelete(url);
 		// 配置请求参数实例
@@ -137,7 +148,13 @@ public class MyHttpConnection {
 		try (CloseableHttpResponse httpResponse = httpClient.execute(httpDelete)) {
 			// 从响应对象中获取响应内容
 			HttpEntity entity = httpResponse.getEntity();
+			if(entity == null) {
+				logger.info("response entity is null");
+				return null;
+			}
 			result = EntityUtils.toString(entity);
+			logger.info("STATUS: \n" + httpResponse.getStatusLine().getStatusCode());
+			logger.info("RESULT: \n" + result);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

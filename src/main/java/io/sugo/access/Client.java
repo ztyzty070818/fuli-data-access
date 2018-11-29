@@ -33,10 +33,13 @@ public class Client {
 	public static Properties properties = new Properties();
 	private static final Logger logger = LoggerFactory.getLogger(Client.class);
 	public static String overlordIp;
+	public static String coordinatorIp;
+	public static List<String> allUpdateTypeList;
 
 	static {
 		try {
 			properties.load(new FileInputStream("conf/system.properties"));
+			allUpdateTypeList = Lists.newArrayList(properties.getProperty("all.update.type").split(","));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -46,6 +49,8 @@ public class Client {
 	public static String dateStr = new DateTime().minusDays(1).toString("yyyy-MM-dd");
 
 	public static void addAndUpdate(String name, ScpUtil scpUtil) throws Exception {
+
+		if (allUpdateTypeList.contains(name)) deleteTindexDataSource(name);
 
 		boolean createTask = Boolean.parseBoolean(properties.getProperty("create.task"));
 
@@ -60,7 +65,7 @@ public class Client {
 			}
 		}
 
-		if (actionList.contains("update") && !name.equals("cart")) {
+		if (actionList.contains("update") && !allUpdateTypeList.contains(name)) {
 			if (actionList.contains("add")) {
 				int sleepSeconds = Integer.parseInt(properties.getProperty("wait.for.add.seconds"));
 				logger.info("wait for add action: " + sleepSeconds + "s");
@@ -68,6 +73,13 @@ public class Client {
 			}
 			update(name, createTask);
 		}
+	}
+
+	private static void deleteTindexDataSource(String name) {
+		String tableName = properties.getProperty(name + ".table.name");
+		String ip = getCoordinatorIp(properties.getProperty("coordinator.ip").split(","));
+		MyHttpConnection.delete(String.format(
+						"http://%s/druid/coordinator/v1/metadata/datasources/%s/disable", ip, tableName));
 	}
 
 	public static void add(String name, ScpUtil scpUtil) throws Exception {
@@ -185,7 +197,7 @@ public class Client {
 							} else {
 								dataMap.put(columnName, 0);
 							}
-						}  else if (columnTyope.equals("int") || columnTyope.equals("double") || columnTyope.equals("float")) {
+						} else if (columnTyope.equals("int") || columnTyope.equals("double") || columnTyope.equals("float")) {
 							if (StringUtils.isBlank(value) || value.equals("null")) {
 								dataMap.put(columnName, 0);
 							} else {
@@ -242,6 +254,30 @@ public class Client {
 
 			}
 			logger.error("WTF? overlord leader is not exist!");
+			return null;
+		}
+	}
+
+	public static String getCoordinatorIp(String[] ips) {
+		if (StringUtils.isNotBlank(coordinatorIp)) return coordinatorIp;
+
+		if (ips.length < 1) {
+			logger.error("coordinator ip is not exist in system.properties!");
+			return null;
+		} else {
+			for (String ip : ips) {
+				try {
+					String url = String.format("http://%s:8081/druid/coordinator/v1/leader", ip);
+					String result = MyHttpConnection.getData(url).replace("http://", "");
+					if (StringUtils.isNotBlank(result))
+						overlordIp = result;
+					return overlordIp;
+				} catch (Exception e) {
+					logger.error(String.format("can not get leader from ip(%s) for coordinator", ip));
+				}
+
+			}
+			logger.error("WTF? coordinator leader is not exist!");
 			return null;
 		}
 	}

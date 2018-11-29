@@ -3,6 +3,7 @@ todayStr=`date +"%Y-%m-%d"`
 sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/fuli_good \
 --hive-import -hive-drop-import-delims --hive-table fuli_good --hive-partition-key day --hive-partition-value $dateStr-add -m 1 --query \
 " \
+SELECT * FROM ( \
 SELECT open_order__id, open_order__total_id, open_order__account_id, open_order__community_id, open_order__app_id \
 	, open_order__service_id, open_order__uid, open_order__caution_id, open_order__pay_channel, open_order__out_trade_no \
 	, open_order__client_ip, open_order__project_type, open_order__trade_type, open_order__weixin_open_id, open_order__expire_time \
@@ -378,4 +379,10 @@ FROM ( \
 ) order_info \
 	RIGHT JOIN open_store_good_order_rel ON open_store_order__id = open_store_good_order_rel.order_id \
 	RIGHT JOIN open_store_good ON open_store_good_order_rel.good_id = open_store_good.id \
-where \$CONDITIONS "
+) J  \
+where \$CONDITIONS AND \
+open_order__create_time < '$todayStr' \
+OR open_store_order__create_time < '$todayStr' \
+OR open_quick_order__create_time < '$todayStr' \
+OR open_store_good__create_time < '$todayStr' \
+"

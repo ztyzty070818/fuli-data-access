@@ -39,13 +39,11 @@ public class Main {
 						properties.getProperty("worker.user"),
 						properties.getProperty("worker.pw"));
 
-		changeTaskWorkerIp(workerIp);
+		List<String> nameList = Lists.newArrayList(properties.getProperty("access.type").split(","));
+		changeTaskWorkerIp(workerIp, nameList);
 
-
-		List<String> typeList = Lists.newArrayList(properties.getProperty("access.type").split(","));
-
-		for(String type : typeList) {
-			Client.addAndUpdate(type, scpUtil);
+		for(String name : nameList) {
+			Client.addAndUpdate(name, scpUtil);
 		}
 	}
 
@@ -74,19 +72,13 @@ public class Main {
 		return null;
 	}
 
-	public static void changeTaskWorkerIp(String workerIp) throws IOException {
-		String orderAdd = FileUtils.readFileToString(new File("resource/task/order-add.json"));
-		String goodAdd = FileUtils.readFileToString(new File("resource/task/good-add.json"));
-
-		JSONObject orderAddObject = new JSONObject(orderAdd);
-		JSONObject goodAddObject = new JSONObject(goodAdd);
-
-		orderAddObject.put("worker", workerIp);
-		goodAddObject.put("worker", workerIp);
-
-		FileUtils.writeStringToFile(new File("resource/task/order-add.json"), orderAddObject.toString(2));
-		FileUtils.writeStringToFile(new File("resource/task/good-add.json"), goodAddObject.toString(2));
+	public static void changeTaskWorkerIp(String workerIp, List<String> typeList) throws IOException {
+		for(String name : typeList) {
+			File file = new File("resource/task/" + name + "-add.json");
+			String addStr = FileUtils.readFileToString(file);
+			JSONObject addObject = new JSONObject(addStr);
+			addObject.put("worker", workerIp);
+			FileUtils.writeStringToFile(file, addObject.toString(2));
+		}
 	}
-
-
 }

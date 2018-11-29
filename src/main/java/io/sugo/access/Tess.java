@@ -19,9 +19,11 @@ import java.util.Properties;
 public class Tess {
 	private static Logger logger = LoggerFactory.getLogger(Tess.class);
 	public static void main(String[] args) throws IOException, InterruptedException {
-
-		Properties properties = new Properties();
-		properties.load(new FileInputStream("conf/system.properties"));
-		logger.info("????");
+//
+//		Properties properties = new Properties();
+//		properties.load(new FileInputStream("conf/system.properties"));
+//		logger.info("????");
+		boolean a = "3" == "3";
+		System.out.println(a);
 	}
 }

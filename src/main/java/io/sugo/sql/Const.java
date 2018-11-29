@@ -354,6 +354,22 @@ public class Const {
 						"verify_end_time\n" +
 						"pay_status\n");
 
+		tableColumnMap.put("open_caution_info", "id\n" +
+						"service_id\n" +
+						"money\n" +
+						"bill_id\n" +
+						"bill_create_time\n" +
+						"bill_status\n" +
+						"bill_pay_time\n" +
+						"create_time\n" +
+						"status\n" +
+						"pay_time\n" +
+						"create_uid\n" +
+						"money_type\n" +
+						"money_pic\n" +
+						"open_id\n" +
+						"remarks\n");
+
 		return tableColumnMap;
 	}
 
@@ -404,6 +420,7 @@ public class Const {
 
 
 	public static void main(String[] args) {
+		printColumnStr(ImmutableMap.of("open_caution_info", "all"));
 //		printColumnStr(ImmutableMap.<String, String>builder()
 //										.put("open_order", "all")
 //										.put("open_store_order", "all")
@@ -492,6 +509,7 @@ public class Const {
 //						.build()
 //		);
 
+		System.out.println("-------------------------------------------------------------------");
 		for(String name : getMap().keySet())
 		System.out.println(name);
 	}

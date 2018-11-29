@@ -21,7 +21,7 @@
         <Delete basePath="${LOG_DIR}" maxDepth="1">
           <IfFileName glob="${LOG_NAME}*.log.gz" />
           <!--<IfLastModified age="7d" />-->
-          <IfLastModified age="2d" />
+          <IfLastModified age="30d" />
         </Delete>
       </DefaultRolloverStrategy>
     </RollingRandomAccessFile>

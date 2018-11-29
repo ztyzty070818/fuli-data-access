@@ -40,7 +40,8 @@ FROM open_store_shopping_cart \
 	LEFT JOIN open_merchant_info ON community_service.merchant_id = open_merchant_info.id \
 	LEFT JOIN community_service_category ON community_service.category_id = community_service_category.id \
 	LEFT JOIN open_service_detail ON open_store_good.service_id = open_service_detail.service_id ) J \
-where \$CONDITIONS \
+where \$CONDITIONS AND \
+open_store_shopping_cart__create_time < '$todayStr' \
 "
 
 
