@@ -313,6 +313,7 @@ FROM ( \
 	LEFT JOIN area ON community.area_id = area.id ) J \
 where \$CONDITIONS AND \
 open_order__create_time BETWEEN '$dateStr' AND '$todayStr' \
-OR open_store_order__create_time BETWEEN '$dateStr' AND '$todayStr' \
-OR open_quick_order__create_time BETWEEN '$dateStr' AND '$todayStr' \
+OR (open_order__create_time is null AND open_store_order__create_time BETWEEN '$dateStr' AND '$todayStr') \
+OR (open_order__create_time is null AND open_store_order__create_time is null AND open_quick_order__create_time BETWEEN '$dateStr' AND '$todayStr') \
 "
+

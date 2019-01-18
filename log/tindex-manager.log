@@ -1,7 +1,0 @@
-2018-11-29 15:24:11 INFO [MyHttpConnection:108] - HTTP GET: 
-http://sugo1.thinkinpower.com:8090/druid/indexer/v1/leader
-2018-11-29 15:24:46 ERROR [Client:249] - can not get leader from ip(sugo1.thinkinpower.com) for overlord
-2018-11-29 15:24:46 INFO [MyHttpConnection:108] - HTTP GET: 
-http://sugo2.thinkinpower.com:8090/druid/indexer/v1/leader
-2018-11-29 15:25:07 INFO [MyHttpConnection:135] - HTTP DELETE: 
-http://sugo1.thinkinpower.com:8081/druid/coordinator/v1/metadata/datasources/tindex_HJTeE6YmQ_project_dUGFL8laB9/disable

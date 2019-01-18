@@ -1,4 +1,4 @@
-package io.sugo.sql;
+package io.sugo.access;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;

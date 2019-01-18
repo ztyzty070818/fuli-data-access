@@ -1,6 +1,6 @@
 dateStr=`date +"%Y-%m-%d" -d "-1day"`
 todayStr=`date +"%Y-%m-%d"`
-sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/fuli_good \
+sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/fuli_good_add \
 --hive-import -hive-drop-import-delims --hive-table fuli_good --hive-partition-key day --hive-partition-value $dateStr-add -m 1 --query \
 " \
 SELECT * FROM ( \
@@ -381,8 +381,9 @@ FROM ( \
 	RIGHT JOIN open_store_good ON open_store_good_order_rel.good_id = open_store_good.id \
 ) J  \
 where \$CONDITIONS AND \
-open_order__create_time < '$todayStr' \
-OR open_store_order__create_time < '$todayStr' \
-OR open_quick_order__create_time < '$todayStr' \
-OR open_store_good__create_time < '$todayStr' \
+open_order__create_time BETWEEN '$dateStr' AND '$todayStr' \
+OR (open_order__create_time is null AND open_store_order__create_time BETWEEN '$dateStr' AND '$todayStr') \
+OR (open_order__create_time is null AND open_store_order__create_time is null AND open_quick_order__create_time BETWEEN '$dateStr' AND '$todayStr') \
+OR (open_order__create_time is null AND open_store_order__create_time is null AND open_quick_order__create_time is null AND open_store_good__create_time BETWEEN '$dateStr' AND '$todayStr') \
 "
+

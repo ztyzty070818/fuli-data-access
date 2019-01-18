@@ -2,7 +2,7 @@
 <Configuration status="INFO" monitorInterval="60">
   <Properties>
     <Property name="LOG_DIR" >${sys:log.path}</Property>
-    <Property name="LOG_NAME" >tindex-manager</Property>
+    <Property name="LOG_NAME" >data-clean</Property>
   </Properties>
 
   <Appenders>
