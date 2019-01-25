@@ -1,0 +1,593 @@
+{
+  "type": "lucene_index",
+  "worker": "dev224.sugo.net:8091",
+  "spec": {
+    "dataSchema": {
+      "dataSource": "tindex_HJTeE6YmQ_project_dUGFL8laB9",
+      "metricsSpec": [],
+      "parser": {
+        "parseSpec": {
+          "format": "tsv",
+          "timestampSpec": {
+            "column": "qrcode_build_log_sync__my_create_time",
+            "format": "millis"
+          },
+          "dimensionsSpec": {
+            "dimensionExclusions": [],
+            "spatialDimensions": [],
+            "dimensions": [
+              {
+                "name": "qrcode_build_log_sync__my_id",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log_sync__my_create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "qrcode_build_log_sync__my_community_id",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log_sync__id",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log_sync__qrcode_decoding",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log_sync__community_id",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log_sync__type",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log_sync__can_pass_count",
+                "type": "int"
+              },
+              {
+                "name": "qrcode_build_log_sync__begin_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "qrcode_build_log_sync__end_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "qrcode_build_log_sync__qrcode_id",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log_sync__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "qrcode_build_log_sync__sys_group",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log_sync__weekday",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log_sync__hour",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log_sync__day",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__id",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__qrcode",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__uid",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__phone",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__is_guanjia",
+                "type": "tinyint"
+              },
+              {
+                "name": "qrcode_build_log__community_id",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__other_community",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "qrcode_build_log__type",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__begin_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "qrcode_build_log__end_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "qrcode_build_log__can_count",
+                "type": "int"
+              },
+              {
+                "name": "qrcode_build_log__status",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__admin_id",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__other_id",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__sys_type",
+                "type": "string"
+              },
+              {
+                "name": "qrcode_build_log__day",
+                "type": "string"
+              },
+              {
+                "name": "community__id",
+                "type": "string"
+              },
+              {
+                "name": "community__name",
+                "type": "string"
+              },
+              {
+                "name": "community__phone",
+                "type": "string"
+              },
+              {
+                "name": "community__tel",
+                "type": "string"
+              },
+              {
+                "name": "community__city_id",
+                "type": "string"
+              },
+              {
+                "name": "community__city_name",
+                "type": "string"
+              },
+              {
+                "name": "community__area_id",
+                "type": "string"
+              },
+              {
+                "name": "community__address",
+                "type": "string"
+              },
+              {
+                "name": "community__intro",
+                "type": "string"
+              },
+              {
+                "name": "community__status",
+                "type": "string"
+              },
+              {
+                "name": "community__category",
+                "type": "string"
+              },
+              {
+                "name": "community__project_guid",
+                "type": "string"
+              },
+              {
+                "name": "community__sort",
+                "type": "string"
+              },
+              {
+                "name": "community__qrcode_url",
+                "type": "string"
+              },
+              {
+                "name": "community__longitude",
+                "type": "string"
+              },
+              {
+                "name": "community__latitude",
+                "type": "string"
+              },
+              {
+                "name": "community__admin_id",
+                "type": "string"
+              },
+              {
+                "name": "community__type",
+                "type": "string"
+              },
+              {
+                "name": "community__building_area",
+                "type": "string"
+              },
+              {
+                "name": "community__practical_area",
+                "type": "string"
+              },
+              {
+                "name": "community__type_desc",
+                "type": "string"
+              },
+              {
+                "name": "community__logo_url",
+                "type": "string"
+              },
+              {
+                "name": "community__background_url",
+                "type": "string"
+              },
+              {
+                "name": "community__topic_audit",
+                "type": "string"
+              },
+              {
+                "name": "community__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "community__cid",
+                "type": "string"
+              },
+              {
+                "name": "community__weixin",
+                "type": "string"
+              },
+              {
+                "name": "community__property_company",
+                "type": "string"
+              },
+              {
+                "name": "community__business_person",
+                "type": "string"
+              },
+              {
+                "name": "community__business_phone",
+                "type": "string"
+              },
+              {
+                "name": "community__business_email",
+                "type": "string"
+              },
+              {
+                "name": "community__pinyin",
+                "type": "string"
+              },
+              {
+                "name": "community__sync_flag",
+                "type": "tinyint"
+              },
+              {
+                "name": "community__update_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "visit_apply_visitor__id",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply_visitor__name",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply_visitor__phone",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply_visitor__idcard",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply_visitor__visit_apply_id",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply_visitor__qrcode_id",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply_visitor__qrcode_uuid",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply__id",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply__community_id",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply__target_name",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply__target_phone",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply__refuse_reason",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply__visit_reason",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply__visit_count",
+                "type": "int"
+              },
+              {
+                "name": "visit_apply__visit_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "visit_apply__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "visit_apply__update_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "visit_apply__status",
+                "type": "string"
+              },
+              {
+                "name": "visit_apply__creator",
+                "type": "string"
+              },
+              {
+                "name": "visit4_visitor__id",
+                "type": "string"
+              },
+              {
+                "name": "visit4_visitor__visit_id",
+                "type": "string"
+              },
+              {
+                "name": "visit4_visitor__name",
+                "type": "string"
+              },
+              {
+                "name": "visit4_visitor__uid",
+                "type": "string"
+              },
+              {
+                "name": "visit4_visitor__phone",
+                "type": "string"
+              },
+              {
+                "name": "visit4_visitor__idcard",
+                "type": "string"
+              },
+              {
+                "name": "visit4_visitor__qrcode_id",
+                "type": "string"
+              },
+              {
+                "name": "visit4_visitor__qrcode_uuid",
+                "type": "string"
+              },
+              {
+                "name": "visit4_visitor__status",
+                "type": "string"
+              },
+              {
+                "name": "visit4_info__id",
+                "type": "string"
+              },
+              {
+                "name": "visit4_info__create_uid",
+                "type": "string"
+              },
+              {
+                "name": "visit4_info__create_date",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "visit4_info__community_id",
+                "type": "string"
+              },
+              {
+                "name": "visit4_info__child_id",
+                "type": "string"
+              },
+              {
+                "name": "visit4_info__master_id",
+                "type": "string"
+              },
+              {
+                "name": "visit4_info__type",
+                "type": "string"
+              },
+              {
+                "name": "visit4_info__visit_date",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "visit4_info__status",
+                "type": "string"
+              },
+              {
+                "name": "visit4_info__visit_count",
+                "type": "int"
+              }
+            ]
+          },
+          "delimiter": "\u0001",
+          "listDelimiter": "\u0002",
+          "columns": [
+            "qrcode_build_log_sync__my_id",
+            "qrcode_build_log_sync__my_create_time",
+            "qrcode_build_log_sync__my_community_id",
+            "qrcode_build_log_sync__id",
+            "qrcode_build_log_sync__qrcode_decoding",
+            "qrcode_build_log_sync__community_id",
+            "qrcode_build_log_sync__type",
+            "qrcode_build_log_sync__can_pass_count",
+            "qrcode_build_log_sync__begin_time",
+            "qrcode_build_log_sync__end_time",
+            "qrcode_build_log_sync__qrcode_id",
+            "qrcode_build_log_sync__create_time",
+            "qrcode_build_log_sync__sys_group",
+            "qrcode_build_log_sync__weekday",
+            "qrcode_build_log_sync__hour",
+            "qrcode_build_log_sync__day",
+            "qrcode_build_log__id",
+            "qrcode_build_log__qrcode",
+            "qrcode_build_log__uid",
+            "qrcode_build_log__phone",
+            "qrcode_build_log__is_guanjia",
+            "qrcode_build_log__community_id",
+            "qrcode_build_log__other_community",
+            "qrcode_build_log__create_time",
+            "qrcode_build_log__type",
+            "qrcode_build_log__begin_time",
+            "qrcode_build_log__end_time",
+            "qrcode_build_log__can_count",
+            "qrcode_build_log__status",
+            "qrcode_build_log__admin_id",
+            "qrcode_build_log__other_id",
+            "qrcode_build_log__sys_type",
+            "qrcode_build_log__day",
+            "community__id",
+            "community__name",
+            "community__phone",
+            "community__tel",
+            "community__city_id",
+            "community__city_name",
+            "community__area_id",
+            "community__address",
+            "community__intro",
+            "community__status",
+            "community__category",
+            "community__project_guid",
+            "community__sort",
+            "community__qrcode_url",
+            "community__longitude",
+            "community__latitude",
+            "community__admin_id",
+            "community__type",
+            "community__building_area",
+            "community__practical_area",
+            "community__type_desc",
+            "community__logo_url",
+            "community__background_url",
+            "community__topic_audit",
+            "community__create_time",
+            "community__cid",
+            "community__weixin",
+            "community__property_company",
+            "community__business_person",
+            "community__business_phone",
+            "community__business_email",
+            "community__pinyin",
+            "community__sync_flag",
+            "community__update_time",
+            "visit_apply_visitor__id",
+            "visit_apply_visitor__name",
+            "visit_apply_visitor__phone",
+            "visit_apply_visitor__idcard",
+            "visit_apply_visitor__visit_apply_id",
+            "visit_apply_visitor__qrcode_id",
+            "visit_apply_visitor__qrcode_uuid",
+            "visit_apply__id",
+            "visit_apply__community_id",
+            "visit_apply__target_name",
+            "visit_apply__target_phone",
+            "visit_apply__refuse_reason",
+            "visit_apply__visit_reason",
+            "visit_apply__visit_count",
+            "visit_apply__visit_time",
+            "visit_apply__create_time",
+            "visit_apply__update_time",
+            "visit_apply__status",
+            "visit_apply__creator",
+            "visit4_visitor__id",
+            "visit4_visitor__visit_id",
+            "visit4_visitor__name",
+            "visit4_visitor__uid",
+            "visit4_visitor__phone",
+            "visit4_visitor__idcard",
+            "visit4_visitor__qrcode_id",
+            "visit4_visitor__qrcode_uuid",
+            "visit4_visitor__status",
+            "visit4_info__id",
+            "visit4_info__create_uid",
+            "visit4_info__create_date",
+            "visit4_info__community_id",
+            "visit4_info__child_id",
+            "visit4_info__master_id",
+            "visit4_info__type",
+            "visit4_info__visit_date",
+            "visit4_info__status",
+            "visit4_info__visit_count"
+          ]
+        }
+      },
+      "granularitySpec": {
+        "intervals": [
+          "1000/2020"
+        ],
+        "segmentGranularity": "MONTH",
+        "queryGranularity": "NONE",
+        "type": "uniform"
+      }
+    },
+    "ioConfig": {
+      "type": "lucene_index",
+      "firehose": {
+        "type": "local",
+        "filter": "access_record.csv",
+        "baseDir": "/tmp/"
+      }
+    },
+    "tuningConfig": {
+      "type": "lucene_index",
+      "maxRowsPerSegment": 5000000,
+      "overwrite": false,
+      "reportParseExceptions": true
+    }
+  },
+  "context": {
+    "debug": true
+  }
+}

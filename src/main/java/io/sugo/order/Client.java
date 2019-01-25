@@ -1,4 +1,4 @@
-package io.sugo.access;
+package io.sugo.order;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -39,7 +39,7 @@ public class Client {
 	static {
 		try {
 			properties.load(new FileInputStream("conf/system.properties"));
-			allUpdateTypeList = Lists.newArrayList(properties.getProperty("all.update.type").split(","));
+			allUpdateTypeList = Lists.newArrayList(properties.getProperty("all-init.update.type").split(","));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -116,8 +116,8 @@ public class Client {
 		FileProducer fileProducer = new FileProducer(dataFile);
 		while (listFiles.hasNext()) {
 			LocatedFileStatus next = listFiles.next();
-			String fileName = next.getPath().getName();
 			Path path = next.getPath();
+			String fileName = path.getName();
 
 			if (!fileName.equals("_SUCCESS")) {
 				logger.info(fileName + "---" + path.toString());

@@ -1,0 +1,27 @@
+select
+id AS visit_community_qrcode__id,
+community_id AS visit_community_qrcode__community_id,
+content AS visit_community_qrcode__content,
+create_time AS visit_community_qrcode__create_time,
+exp_time AS visit_community_qrcode__exp_time,
+valid_date AS visit_community_qrcode__valid_date,
+admin_id AS visit_community_qrcode__admin_id,
+use_in_count AS visit_community_qrcode__use_in_count,
+use_in_time AS visit_community_qrcode__use_in_time,
+use_out_count AS visit_community_qrcode__use_out_count,
+use_out_time AS visit_community_qrcode__use_out_time,
+create_ip AS visit_community_qrcode__create_ip,
+create_phone AS visit_community_qrcode__create_phone,
+create_uid AS visit_community_qrcode__create_uid,
+is_print AS visit_community_qrcode__is_print,
+print_time AS visit_community_qrcode__print_time
+from visit_community_qrcode
+
+
+dateStr=`date +"%Y-%m-%d" -d "-1day"`
+todayStr=`date +"%Y-%m-%d"`
+sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit_apply_visitor \
+--hive-import -hive-drop-import-delims --hive-table visit_apply_visitor --hive-partition-key day --hive-partition-value $dateStr-add -m 1 --query \
+"SELECT id AS visit_apply_visitor__id, name AS visit_apply_visitor__name, phone AS visit_apply_visitor__phone, idcard AS visit_apply_visitor__idcard, visit_apply_id AS visit_apply_visitor__visit_apply_id
+ 	, qrcode_id AS visit_apply_visitor__qrcode_id, qrcode_uuid AS visit_apply_visitor__qrcode_uuid
+ FROM visit_apply_visitor where \$CONDITIONS"

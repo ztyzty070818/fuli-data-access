@@ -1,0 +1,9 @@
+select
+id AS visit_community_user_qrcode__id,
+uid AS visit_community_user_qrcode__uid,
+community_id AS visit_community_user_qrcode__community_id,
+content AS visit_community_user_qrcode__content,
+create_time AS visit_community_user_qrcode__create_time,
+exp_time AS visit_community_user_qrcode__exp_time,
+create_ip AS visit_community_user_qrcode__create_ip
+from visit_community_user_qrcode

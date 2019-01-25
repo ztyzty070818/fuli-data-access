@@ -1,0 +1,12 @@
+todayStr=`date +"%Y-%m-%d"`
+yesterdayStr=`date +"%Y-%m-%d" -d "-1day"`
+/opt/apps/hive_sugo/bin/hive -e "
+INSERT INTO TABLE access_record PARTITION(day='${yesterdayStr}')
+SELECT *
+FROM qrcode_build_log_sync
+LEFT JOIN qrcode_build_log ON qrcode_build_log_sync__qrcode_id = qrcode_build_log__id
+LEFT JOIN community ON qrcode_build_log_sync__community_id = community__id
+LEFT JOIN visit_apply_visitor ON qrcode_build_log_sync__qrcode_id = visit_apply_visitor__qrcode_id
+LEFT JOIN visit_apply app ON visit_apply_visitor__visit_apply_id = visit_apply__id
+LEFT JOIN visit4_visitor ON qrcode_build_log_sync__qrcode_id = visit4_visitor__qrcode_id
+LEFT JOIN visit4_info ON visit4_visitor__visit_id = visit4_info__id"

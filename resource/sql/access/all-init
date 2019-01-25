@@ -1,0 +1,106 @@
+
+/opt/apps/hive_sugo/bin/hive -e "set hive.exec.compress.intermediate=false"
+# community
+sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/community \
+--hive-import -hive-drop-import-delims --hive-table community -m 1 --query \
+"SELECT id AS community__id, name AS community__name, phone AS community__phone, tel AS community__tel, city_id AS community__city_id \
+, city_name AS community__city_name, area_id AS community__area_id, address AS community__address, intro AS community__intro, status AS community__status \
+, category AS community__category, project_guid AS community__project_guid, sort AS community__sort, qrcode_url AS community__qrcode_url, longitude AS community__longitude \
+, latitude AS community__latitude, admin_id AS community__admin_id, type AS community__type, building_area AS community__building_area, practical_area AS community__practical_area \
+, type_desc AS community__type_desc, logo_url AS community__logo_url, background_url AS community__background_url, topic_audit AS community__topic_audit, create_time AS community__create_time \
+, cid AS community__cid, weixin AS community__weixin, property_company AS community__property_company, business_person AS community__business_person, business_phone AS community__business_phone \
+, business_email AS community__business_email, pinyin AS community__pinyin, sync_flag AS community__sync_flag, update_time AS community__update_time \
+FROM community WHERE \$CONDITIONS"
+
+# visit4_info
+sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit4_info \
+--hive-import -hive-drop-import-delims --hive-table visit4_info -m 1 --query \
+"SELECT id AS visit4_info__id, create_uid AS visit4_info__create_uid, create_date AS visit4_info__create_date, community_id AS visit4_info__community_id, child_id AS visit4_info__child_id
+ 	, master_id AS visit4_info__master_id, type AS visit4_info__type, visit_date AS visit4_info__visit_date, status AS visit4_info__status, visit_count AS visit4_info__visit_count
+ FROM visit4_info WHERE \$CONDITIONS"
+ 
+# visit4_visitor
+sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit4_visitor \
+--hive-import -hive-drop-import-delims --hive-table visit4_visitor -m 1 --query \
+"SELECT id AS visit4_visitor__id, visit_id AS visit4_visitor__visit_id, name AS visit4_visitor__name, uid AS visit4_visitor__uid, phone AS visit4_visitor__phone
+ 	, idcard AS visit4_visitor__idcard, qrcode_id AS visit4_visitor__qrcode_id, qrcode_uuid AS visit4_visitor__qrcode_uuid, status AS visit4_visitor__status
+ FROM visit4_visitor WHERE \$CONDITIONS"
+
+# visit_apply
+sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit_apply \
+--hive-import -hive-drop-import-delims --hive-table visit_apply -m 1 --query \
+"SELECT id AS visit_apply__id, community_id AS visit_apply__community_id, target_name AS visit_apply__target_name, target_phone AS visit_apply__target_phone, refuse_reason AS visit_apply__refuse_reason
+ 	, visit_reason AS visit_apply__visit_reason, visit_count AS visit_apply__visit_count, visit_time AS visit_apply__visit_time, create_time AS visit_apply__create_time, update_time AS visit_apply__update_time
+ 	, status AS visit_apply__status, creator AS visit_apply__creator
+ FROM visit_apply WHERE \$CONDITIONS"
+
+# visit_apply_visitor
+sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit_apply_visitor \
+--hive-import -hive-drop-import-delims --hive-table visit_apply_visitor -m 1 --query \
+"SELECT id AS visit_apply_visitor__id, name AS visit_apply_visitor__name, phone AS visit_apply_visitor__phone, idcard AS visit_apply_visitor__idcard, visit_apply_id AS visit_apply_visitor__visit_apply_id
+ 	, qrcode_id AS visit_apply_visitor__qrcode_id, qrcode_uuid AS visit_apply_visitor__qrcode_uuid
+ FROM visit_apply_visitor WHERE \$CONDITIONS"
+
+# qrcode_build_log
+todayStr=`date +"%Y-%m-%d"`
+yesterdayStr=`date +"%Y-%m-%d" -d "-1day"`
+sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/qrcode_build_log \
+--hive-import -hive-drop-import-delims --hive-table qrcode_build_log --hive-partition-key qrcode_build_log__day --hive-partition-value $yesterdayStr -m 1 --query \
+"SELECT id AS qrcode_build_log__id, qrcode AS qrcode_build_log__qrcode, uid AS qrcode_build_log__uid, phone AS qrcode_build_log__phone, is_guanjia AS qrcode_build_log__is_guanjia
+ 	, community_id AS qrcode_build_log__community_id, other_community AS qrcode_build_log__other_community, create_time AS qrcode_build_log__create_time, type AS qrcode_build_log__type, begin_time AS qrcode_build_log__begin_time
+ 	, end_time AS qrcode_build_log__end_time, can_count AS qrcode_build_log__can_count, status AS qrcode_build_log__status, admin_id AS qrcode_build_log__admin_id, other_id AS qrcode_build_log__other_id
+ 	, sys_type AS qrcode_build_log__sys_type
+ FROM qrcode_build_log WHERE \$CONDITIONS AND create_time < '$todayStr'"
+
+# qrcode_build_log_sync
+todayStr=`date +"%Y-%m-%d"`
+yesterdayStr=`date +"%Y-%m-%d" -d "-1day"`
+sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/qrcode_build_log_sync \
+--hive-import -hive-drop-import-delims --hive-table qrcode_build_log_sync --hive-partition-key qrcode_build_log_sync__day --hive-partition-value $yesterdayStr -m 1 --query \
+"SELECT my_id AS qrcode_build_log_sync__my_id, my_create_time AS qrcode_build_log_sync__my_create_time, my_community_id AS qrcode_build_log_sync__my_community_id, id AS qrcode_build_log_sync__id, qrcode_decoding AS qrcode_build_log_sync__qrcode_decoding
+ 	, community_id AS qrcode_build_log_sync__community_id, type AS qrcode_build_log_sync__type, can_pass_count AS qrcode_build_log_sync__can_pass_count, begin_time AS qrcode_build_log_sync__begin_time, end_time AS qrcode_build_log_sync__end_time
+ 	, qrcode_id AS qrcode_build_log_sync__qrcode_id, create_time AS qrcode_build_log_sync__create_time, sys_group AS qrcode_build_log_sync__sys_group
+ 	, weekday(create_time) + 1 AS qrcode_build_log_sync__weekday
+ 	, hour(create_time) AS qrcode_build_log_sync__hour
+ FROM qrcode_build_log_sync WHERE \$CONDITIONS AND create_time < '$todayStr'"
+
+
+
+drop table community;
+drop table visit4_info;
+drop table visit4_visitor;
+drop table visit_apply;
+drop table visit_apply_visitor;
+drop table qrcode_build_log;
+drop table qrcode_bild_log_sync;
+
+
+# create table access_record
+CREATE TABLE access_record
+AS
+SELECT *
+FROM qrcode_build_log_sync    -- 门禁记录
+    LEFT JOIN qrcode_build_log ON qrcode_build_log_sync__qrcode_id = qrcode_build_log__id    -- 二维码
+    LEFT JOIN community ON qrcode_build_log_sync__community_id = community__id    -- 社区
+    LEFT JOIN visit_apply_visitor ON qrcode_build_log_sync__qrcode_id = visit_apply_visitor__qrcode_id    -- 拜访人(客)
+    LEFT JOIN visit_apply app ON visit_apply_visitor__visit_apply_id = visit_apply__id    -- 被访人(主)
+    LEFT JOIN visit4_visitor ON qrcode_build_log_sync__qrcode_id = visit4_visitor__qrcode_id    -- 被邀约人(客)
+    LEFT JOIN visit4_info ON visit4_visitor__visit_id = visit4_info__id    -- 邀约人(主)
+
+
+
+
+todayStr=`date +"%Y-%m-%d"`
+yesterdayStr=`date +"%Y-%m-%d" -d "-1day"`
+/opt/apps/hive_sugo/bin/hive -e "
+set hive.exec.compress.intermediate=false;
+INSERT INTO TABLE access_record PARTITION(day='${yesterdayStr}')
+SELECT *
+FROM qrcode_build_log_sync
+LEFT JOIN qrcode_build_log ON qrcode_build_log_sync__qrcode_id = qrcode_build_log__id
+LEFT JOIN community ON qrcode_build_log_sync__community_id = community__id
+LEFT JOIN visit_apply_visitor ON qrcode_build_log_sync__qrcode_id = visit_apply_visitor__qrcode_id
+LEFT JOIN visit_apply app ON visit_apply_visitor__visit_apply_id = visit_apply__id
+LEFT JOIN visit4_visitor ON qrcode_build_log_sync__qrcode_id = visit4_visitor__qrcode_id
+LEFT JOIN visit4_info ON visit4_visitor__visit_id = visit4_info__id"
+

@@ -1,11 +1,8 @@
-package io.sugo.access;
+package io.sugo.order;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import javafx.util.Pair;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -420,36 +417,36 @@ public class Const {
 
 
 	public static void main(String[] args) {
-		printColumnStr(ImmutableMap.of("open_caution_info", "all"));
+		printColumnStr(ImmutableMap.of("open_caution_info", "all-init"));
 //		printColumnStr(ImmutableMap.<String, String>builder()
-//										.put("open_order", "all")
-//										.put("open_store_order", "all")
-//										.put("community_service", "all")
-//										.put("open_merchant_info", "all")
-//										.put("community_service_category", "all")
-//										.put("open_service_detail", "all")
-//										.put("community", "all")
-//										.put("area", "all")
+//										.put("open_order", "all-init")
+//										.put("open_store_order", "all-init")
+//										.put("community_service", "all-init")
+//										.put("open_merchant_info", "all-init")
+//										.put("community_service_category", "all-init")
+//										.put("open_service_detail", "all-init")
+//										.put("community", "all-init")
+//										.put("area", "all-init")
 //										.build()
 //
 //		);
 
 //		printColumnStr(ImmutableMap.<String, String>builder()
-//						.put("open_order", "all")
-//						.put("open_store_order", "all")
-//						.put("community_service", "all")
-//						.put("open_merchant_info", "all")
-//						.put("community_service_category", "all")
-//						.put("open_service_detail", "all")
-//						.put("community", "all")
-//						.put("area", "all")
+//						.put("open_order", "all-init")
+//						.put("open_store_order", "all-init")
+//						.put("community_service", "all-init")
+//						.put("open_merchant_info", "all-init")
+//						.put("community_service_category", "all-init")
+//						.put("open_service_detail", "all-init")
+//						.put("community", "all-init")
+//						.put("area", "all-init")
 //						.build()
 //		);
 
 //		printColumn(ImmutableMap.<String, String>builder()
 //						.put("open_order", "null")
 //						.put("open_store_order", "null")
-//						.put("open_quick_order", "all")
+//						.put("open_quick_order", "all-init")
 //						.put("community_service", "null")
 //						.put("open_merchant_info", "null")
 //						.put("community_service_category", "null")
@@ -462,13 +459,13 @@ public class Const {
 //		printColumn(ImmutableMap.<String, String>builder()
 //						.put("open_order", "null")
 //						.put("open_store_order", "null")
-//						.put("open_quick_order", "all")
-//						.put("community_service", "all")
-//						.put("open_merchant_info", "all")
-//						.put("community_service_category", "all")
-//						.put("open_service_detail", "all")
-//						.put("community", "all")
-//						.put("area", "all")
+//						.put("open_quick_order", "all-init")
+//						.put("community_service", "all-init")
+//						.put("open_merchant_info", "all-init")
+//						.put("community_service_category", "all-init")
+//						.put("open_service_detail", "all-init")
+//						.put("community", "all-init")
+//						.put("area", "all-init")
 //						.build()
 //		);
 
@@ -483,9 +480,9 @@ public class Const {
 //						.put("community", "null")
 //						.put("area", "null")
 //
-//						.put("open_store_good", "all")
-//						.put("open_store_good_order_rel", "all")
-////						.put("open_store_good", "all")
+//						.put("open_store_good", "all-init")
+//						.put("open_store_good_order_rel", "all-init")
+////						.put("open_store_good", "all-init")
 //						.build()
 //		);
 
@@ -493,12 +490,12 @@ public class Const {
 
 
 //		printColumnStr(ImmutableMap.<String, String>builder()
-//						.put("open_store_shopping_cart", "all")
-//						.put("open_store_good", "all")
-//						.put("community_service", "all")
-//						.put("open_merchant_info", "all")
-//						.put("community_service_category", "all")
-//						.put("open_service_detail", "all")
+//						.put("open_store_shopping_cart", "all-init")
+//						.put("open_store_good", "all-init")
+//						.put("community_service", "all-init")
+//						.put("open_merchant_info", "all-init")
+//						.put("community_service_category", "all-init")
+//						.put("open_service_detail", "all-init")
 //
 //						.put("community", "null")
 //						.put("area", "null")
