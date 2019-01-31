@@ -1,0 +1,24 @@
+2019-01-28 11:04:38 INFO [MyHttpConnection:108] - HTTP GET: 
+http://sugo1.thinkinpower.com:8090/druid/indexer/v1/leader
+2019-01-28 11:05:39 WARN [NativeCodeLoader:62] - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-01-28 11:05:41 WARN [DomainSocketFactory:114] - The short-circuit local reads feature cannot be used because libhadoop cannot be loaded.
+2019-01-28 11:06:11 WARN [NativeCodeLoader:62] - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-01-28 11:06:13 WARN [DomainSocketFactory:114] - The short-circuit local reads feature cannot be used because libhadoop cannot be loaded.
+2019-01-28 11:06:55 WARN [NativeCodeLoader:62] - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-01-28 11:06:56 WARN [DomainSocketFactory:114] - The short-circuit local reads feature cannot be used because libhadoop cannot be loaded.
+2019-01-28 11:07:12 WARN [NativeCodeLoader:62] - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-01-28 11:07:13 WARN [DomainSocketFactory:114] - The short-circuit local reads feature cannot be used because libhadoop cannot be loaded.
+2019-01-28 11:14:03 WARN [NativeCodeLoader:62] - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-01-28 11:14:04 INFO [Access:64] - 000000_1---hdfs://localhost/user/hive/warehouse/access_record/day=2019-01-27/000000_1
+2019-01-28 11:14:05 INFO [Access:77] - Total line count:1000
+2019-01-28 11:14:05 INFO [FileProducer:73] - unparseable: 16
+2019-01-28 11:18:56 WARN [NativeCodeLoader:62] - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-01-28 11:18:57 INFO [Access:64] - 000000_1---hdfs://localhost/user/hive/warehouse/access_record/day=2019-01-27/000000_1
+2019-01-28 11:24:22 WARN [NativeCodeLoader:62] - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-01-28 11:24:22 INFO [Access:64] - 000000_1---hdfs://localhost/user/hive/warehouse/access_record/day=2019-01-27/000000_1
+2019-01-28 11:24:23 INFO [Access:77] - Total line count:1000
+2019-01-28 11:24:23 INFO [FileProducer:73] - unparseable: 0
+2019-01-28 11:32:11 WARN [NativeCodeLoader:62] - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2019-01-28 11:32:12 INFO [Access:64] - 000000_1---hdfs://localhost/user/hive/warehouse/access_record/day=2019-01-27/000000_1
+2019-01-28 11:32:12 INFO [Access:77] - Total line count:1000
+2019-01-28 11:32:12 INFO [FileProducer:77] - unparseable: 0

@@ -17,7 +17,6 @@ public class ColumnTypeUtil {
 
 		String colStr = FileUtils.readFileToString(new File("resource/column/access"));
 
-		System.out.println(colStr);
 		for (String str : colStr.split("\n")) {
 			String[] strs = str.split("\t");
 			String name = strs[0].trim();
@@ -25,7 +24,7 @@ public class ColumnTypeUtil {
 			if (name.endsWith("_time") || name.endsWith("_date")) {
 				map.put(name, "date");
 			} else if (type.equals("int")) {
-				if (name.endsWith("_count") || name.endsWith("weekday") || name.endsWith("hour")) {
+				if (name.endsWith("_count") || name.endsWith("weekday") || name.endsWith("hour") || name.endsWith("score")) {
 					map.put(name, type);
 				} else {
 					map.put(name, "string");

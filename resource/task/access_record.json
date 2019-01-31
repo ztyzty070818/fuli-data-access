@@ -1,21 +1,71 @@
 {
   "type": "lucene_index",
-  "worker": "dev224.sugo.net:8091",
+  "worker": "sugo1.thinkinpower.com:8091",
   "spec": {
     "dataSchema": {
-      "dataSource": "tindex_HJTeE6YmQ_project_dUGFL8laB9",
+      "dataSource": "tindex_HJTeE6YmQ_project_9PCZmg3QNX",
       "metricsSpec": [],
       "parser": {
         "parseSpec": {
           "format": "tsv",
           "timestampSpec": {
-            "column": "qrcode_build_log_sync__my_create_time",
+            "column": "event_time",
             "format": "millis"
           },
           "dimensionsSpec": {
             "dimensionExclusions": [],
             "spatialDimensions": [],
             "dimensions": [
+              {
+                "name": "face_visitor__id",
+                "type": "string"
+              },
+              {
+                "name": "face_visitor__uid",
+                "type": "string"
+              },
+              {
+                "name": "face_visitor__name",
+                "type": "string"
+              },
+              {
+                "name": "face_visitor__phone",
+                "type": "string"
+              },
+              {
+                "name": "face_visitor__type",
+                "type": "string"
+              },
+              {
+                "name": "face_visitor__score",
+                "type": "int"
+              },
+              {
+                "name": "face_visitor__community_id",
+                "type": "string"
+              },
+              {
+                "name": "face_visitor__door_id",
+                "type": "string"
+              },
+              {
+                "name": "face_visitor__open_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "face_visitor__sync_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "face_visitor__info",
+                "type": "string"
+              },
+              {
+                "name": "face_visitor__day",
+                "type": "string"
+              },
               {
                 "name": "qrcode_build_log_sync__my_id",
                 "type": "string"
@@ -64,20 +114,49 @@
                 "type": "string"
               },
               {
+                "name": "qrcode_build_log_sync__sys_group",
+                "type": "string"
+              },
+              {
                 "name": "qrcode_build_log_sync__create_time",
                 "format": "millis",
                 "type": "date"
               },
               {
-                "name": "qrcode_build_log_sync__sys_group",
+                "name": "event_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "event_name",
                 "type": "string"
               },
               {
-                "name": "qrcode_build_log_sync__weekday",
+                "name": "event_type",
                 "type": "string"
               },
               {
-                "name": "qrcode_build_log_sync__hour",
+                "name": "weekday",
+                "type": "string"
+              },
+              {
+                "name": "hour",
+                "type": "string"
+              },
+              {
+                "name": "date_str",
+                "type": "string"
+              },
+              {
+                "name": "date_weekday",
+                "type": "string"
+              },
+              {
+                "name": "day_count",
+                "type": "string"
+              },
+              {
+                "name": "date_hour",
                 "type": "string"
               },
               {
@@ -152,146 +231,12 @@
                 "type": "string"
               },
               {
+                "name": "uid",
+                "type": "string"
+              },
+              {
                 "name": "qrcode_build_log__day",
                 "type": "string"
-              },
-              {
-                "name": "community__id",
-                "type": "string"
-              },
-              {
-                "name": "community__name",
-                "type": "string"
-              },
-              {
-                "name": "community__phone",
-                "type": "string"
-              },
-              {
-                "name": "community__tel",
-                "type": "string"
-              },
-              {
-                "name": "community__city_id",
-                "type": "string"
-              },
-              {
-                "name": "community__city_name",
-                "type": "string"
-              },
-              {
-                "name": "community__area_id",
-                "type": "string"
-              },
-              {
-                "name": "community__address",
-                "type": "string"
-              },
-              {
-                "name": "community__intro",
-                "type": "string"
-              },
-              {
-                "name": "community__status",
-                "type": "string"
-              },
-              {
-                "name": "community__category",
-                "type": "string"
-              },
-              {
-                "name": "community__project_guid",
-                "type": "string"
-              },
-              {
-                "name": "community__sort",
-                "type": "string"
-              },
-              {
-                "name": "community__qrcode_url",
-                "type": "string"
-              },
-              {
-                "name": "community__longitude",
-                "type": "string"
-              },
-              {
-                "name": "community__latitude",
-                "type": "string"
-              },
-              {
-                "name": "community__admin_id",
-                "type": "string"
-              },
-              {
-                "name": "community__type",
-                "type": "string"
-              },
-              {
-                "name": "community__building_area",
-                "type": "string"
-              },
-              {
-                "name": "community__practical_area",
-                "type": "string"
-              },
-              {
-                "name": "community__type_desc",
-                "type": "string"
-              },
-              {
-                "name": "community__logo_url",
-                "type": "string"
-              },
-              {
-                "name": "community__background_url",
-                "type": "string"
-              },
-              {
-                "name": "community__topic_audit",
-                "type": "string"
-              },
-              {
-                "name": "community__create_time",
-                "format": "millis",
-                "type": "date"
-              },
-              {
-                "name": "community__cid",
-                "type": "string"
-              },
-              {
-                "name": "community__weixin",
-                "type": "string"
-              },
-              {
-                "name": "community__property_company",
-                "type": "string"
-              },
-              {
-                "name": "community__business_person",
-                "type": "string"
-              },
-              {
-                "name": "community__business_phone",
-                "type": "string"
-              },
-              {
-                "name": "community__business_email",
-                "type": "string"
-              },
-              {
-                "name": "community__pinyin",
-                "type": "string"
-              },
-              {
-                "name": "community__sync_flag",
-                "type": "tinyint"
-              },
-              {
-                "name": "community__update_time",
-                "format": "millis",
-                "type": "date"
               },
               {
                 "name": "visit_apply_visitor__id",
@@ -449,12 +394,166 @@
               {
                 "name": "visit4_info__visit_count",
                 "type": "int"
+              },
+              {
+                "name": "community__id",
+                "type": "string"
+              },
+              {
+                "name": "community__name",
+                "type": "string"
+              },
+              {
+                "name": "community__phone",
+                "type": "string"
+              },
+              {
+                "name": "community__tel",
+                "type": "string"
+              },
+              {
+                "name": "community__city_id",
+                "type": "string"
+              },
+              {
+                "name": "community__city_name",
+                "type": "string"
+              },
+              {
+                "name": "community__area_id",
+                "type": "string"
+              },
+              {
+                "name": "community__address",
+                "type": "string"
+              },
+              {
+                "name": "community__intro",
+                "type": "string"
+              },
+              {
+                "name": "community__status",
+                "type": "string"
+              },
+              {
+                "name": "community__category",
+                "type": "string"
+              },
+              {
+                "name": "community__project_guid",
+                "type": "string"
+              },
+              {
+                "name": "community__sort",
+                "type": "string"
+              },
+              {
+                "name": "community__qrcode_url",
+                "type": "string"
+              },
+              {
+                "name": "community__longitude",
+                "type": "string"
+              },
+              {
+                "name": "community__latitude",
+                "type": "string"
+              },
+              {
+                "name": "community__admin_id",
+                "type": "string"
+              },
+              {
+                "name": "community__type",
+                "type": "string"
+              },
+              {
+                "name": "community__building_area",
+                "type": "string"
+              },
+              {
+                "name": "community__practical_area",
+                "type": "string"
+              },
+              {
+                "name": "community__type_desc",
+                "type": "string"
+              },
+              {
+                "name": "community__logo_url",
+                "type": "string"
+              },
+              {
+                "name": "community__background_url",
+                "type": "string"
+              },
+              {
+                "name": "community__topic_audit",
+                "type": "string"
+              },
+              {
+                "name": "community__create_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "community__cid",
+                "type": "string"
+              },
+              {
+                "name": "community__weixin",
+                "type": "string"
+              },
+              {
+                "name": "community__property_company",
+                "type": "string"
+              },
+              {
+                "name": "community__business_person",
+                "type": "string"
+              },
+              {
+                "name": "community__business_phone",
+                "type": "string"
+              },
+              {
+                "name": "community__business_email",
+                "type": "string"
+              },
+              {
+                "name": "community__pinyin",
+                "type": "string"
+              },
+              {
+                "name": "community__sync_flag",
+                "type": "tinyint"
+              },
+              {
+                "name": "community__update_time",
+                "format": "millis",
+                "type": "date"
+              },
+              {
+                "name": "gate_id",
+                "type": "string"
               }
             ]
           },
           "delimiter": "\u0001",
           "listDelimiter": "\u0002",
           "columns": [
+            "face_visitor__id",
+            "face_visitor__uid",
+            "face_visitor__name",
+            "face_visitor__phone",
+            "face_visitor__type",
+            "face_visitor__score",
+            "face_visitor__community_id",
+            "face_visitor__door_id",
+            "face_visitor__open_time",
+            "face_visitor__sync_time",
+            "face_visitor__info",
+            "face_visitor__day",
             "qrcode_build_log_sync__my_id",
             "qrcode_build_log_sync__my_create_time",
             "qrcode_build_log_sync__my_community_id",
@@ -466,10 +565,17 @@
             "qrcode_build_log_sync__begin_time",
             "qrcode_build_log_sync__end_time",
             "qrcode_build_log_sync__qrcode_id",
-            "qrcode_build_log_sync__create_time",
             "qrcode_build_log_sync__sys_group",
-            "qrcode_build_log_sync__weekday",
-            "qrcode_build_log_sync__hour",
+            "qrcode_build_log_sync__create_time",
+            "event_time",
+            "event_name",
+            "event_type",
+            "weekday",
+            "hour",
+            "date_str",
+            "date_weekday",
+            "day_count",
+            "date_hour",
             "qrcode_build_log_sync__day",
             "qrcode_build_log__id",
             "qrcode_build_log__qrcode",
@@ -487,41 +593,8 @@
             "qrcode_build_log__admin_id",
             "qrcode_build_log__other_id",
             "qrcode_build_log__sys_type",
+            "uid",
             "qrcode_build_log__day",
-            "community__id",
-            "community__name",
-            "community__phone",
-            "community__tel",
-            "community__city_id",
-            "community__city_name",
-            "community__area_id",
-            "community__address",
-            "community__intro",
-            "community__status",
-            "community__category",
-            "community__project_guid",
-            "community__sort",
-            "community__qrcode_url",
-            "community__longitude",
-            "community__latitude",
-            "community__admin_id",
-            "community__type",
-            "community__building_area",
-            "community__practical_area",
-            "community__type_desc",
-            "community__logo_url",
-            "community__background_url",
-            "community__topic_audit",
-            "community__create_time",
-            "community__cid",
-            "community__weixin",
-            "community__property_company",
-            "community__business_person",
-            "community__business_phone",
-            "community__business_email",
-            "community__pinyin",
-            "community__sync_flag",
-            "community__update_time",
             "visit_apply_visitor__id",
             "visit_apply_visitor__name",
             "visit_apply_visitor__phone",
@@ -559,7 +632,42 @@
             "visit4_info__type",
             "visit4_info__visit_date",
             "visit4_info__status",
-            "visit4_info__visit_count"
+            "visit4_info__visit_count",
+            "community__id",
+            "community__name",
+            "community__phone",
+            "community__tel",
+            "community__city_id",
+            "community__city_name",
+            "community__area_id",
+            "community__address",
+            "community__intro",
+            "community__status",
+            "community__category",
+            "community__project_guid",
+            "community__sort",
+            "community__qrcode_url",
+            "community__longitude",
+            "community__latitude",
+            "community__admin_id",
+            "community__type",
+            "community__building_area",
+            "community__practical_area",
+            "community__type_desc",
+            "community__logo_url",
+            "community__background_url",
+            "community__topic_audit",
+            "community__create_time",
+            "community__cid",
+            "community__weixin",
+            "community__property_company",
+            "community__business_person",
+            "community__business_phone",
+            "community__business_email",
+            "community__pinyin",
+            "community__sync_flag",
+            "community__update_time",
+            "gate_id"
           ]
         }
       },

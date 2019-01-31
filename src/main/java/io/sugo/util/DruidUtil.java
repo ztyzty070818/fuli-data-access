@@ -17,6 +17,7 @@ import java.util.Properties;
 public class DruidUtil {
 
 	private static final Logger logger = LoggerFactory.getLogger(DruidUtil.class);
+	public static String overlordIp;
 
 	public static String getWorkerIp(Properties properties) throws InterruptedException, IOException {
 		if (properties.containsKey("worker.ip")) {
@@ -26,7 +27,7 @@ public class DruidUtil {
 			}
 		}
 		for (int j = 0; j < 10; j++) {
-			String response = MyHttpConnection.getData("http://" + Client.getOverlordIp(properties.getProperty("overlord.ip").split(",")) + "/druid/indexer/v1/workers");
+			String response = MyHttpConnection.getData("http://" + getOverlordIp(properties.getProperty("overlord.ip").split(",")) + "/druid/indexer/v1/workers");
 
 			JSONArray jsonArray = new JSONArray(response);
 
@@ -43,5 +44,30 @@ public class DruidUtil {
 			Thread.sleep(60000);
 		}
 		return null;
+	}
+
+
+	public static String getOverlordIp(String[] ips) {
+		if (StringUtils.isNotBlank(overlordIp)) return overlordIp;
+
+		if (ips.length < 1) {
+			logger.error("overlord ip is not exist in system.properties!");
+			return null;
+		} else {
+			for (String ip : ips) {
+				try {
+					String url = String.format("http://%s:8090/druid/indexer/v1/leader", ip);
+					String result = MyHttpConnection.getData(url).replace("http://", "");
+					if (StringUtils.isNotBlank(result))
+						overlordIp = result;
+					return overlordIp;
+				} catch (Exception e) {
+					logger.error(String.format("can not get leader from ip(%s) for overlord", ip));
+				}
+
+			}
+			logger.error("WTF? overlord leader is not exist!");
+			return null;
+		}
 	}
 }

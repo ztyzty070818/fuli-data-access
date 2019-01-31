@@ -49,7 +49,7 @@ sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.
 "SELECT id AS qrcode_build_log__id, qrcode AS qrcode_build_log__qrcode, uid AS qrcode_build_log__uid, phone AS qrcode_build_log__phone, is_guanjia AS qrcode_build_log__is_guanjia
  	, community_id AS qrcode_build_log__community_id, other_community AS qrcode_build_log__other_community, create_time AS qrcode_build_log__create_time, type AS qrcode_build_log__type, begin_time AS qrcode_build_log__begin_time
  	, end_time AS qrcode_build_log__end_time, can_count AS qrcode_build_log__can_count, status AS qrcode_build_log__status, admin_id AS qrcode_build_log__admin_id, other_id AS qrcode_build_log__other_id
- 	, sys_type AS qrcode_build_log__sys_type
+ 	, sys_type AS qrcode_build_log__sys_type, uid
  FROM qrcode_build_log WHERE \$CONDITIONS AND create_time < '$todayStr'"
 
 # qrcode_build_log_sync
@@ -59,10 +59,27 @@ sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.
 --hive-import -hive-drop-import-delims --hive-table qrcode_build_log_sync --hive-partition-key qrcode_build_log_sync__day --hive-partition-value $yesterdayStr -m 1 --query \
 "SELECT my_id AS qrcode_build_log_sync__my_id, my_create_time AS qrcode_build_log_sync__my_create_time, my_community_id AS qrcode_build_log_sync__my_community_id, id AS qrcode_build_log_sync__id, qrcode_decoding AS qrcode_build_log_sync__qrcode_decoding
  	, community_id AS qrcode_build_log_sync__community_id, type AS qrcode_build_log_sync__type, can_pass_count AS qrcode_build_log_sync__can_pass_count, begin_time AS qrcode_build_log_sync__begin_time, end_time AS qrcode_build_log_sync__end_time
- 	, qrcode_id AS qrcode_build_log_sync__qrcode_id, create_time AS qrcode_build_log_sync__create_time, sys_group AS qrcode_build_log_sync__sys_group
- 	, weekday(create_time) + 1 AS qrcode_build_log_sync__weekday
- 	, hour(create_time) AS qrcode_build_log_sync__hour
+ 	, qrcode_id AS qrcode_build_log_sync__qrcode_id, sys_group AS qrcode_build_log_sync__sys_group, create_time AS qrcode_build_log_sync__create_time, create_time AS event_time
+ 	,'二维码识别' AS event_name, '门禁' AS event_type, weekday(create_time) + 1 AS weekday, hour(create_time) AS hour
+ 	, date(create_time) AS date_str, concat(date(create_time), '-', weekday(create_time) + 1) date_weekday
+ 	, DATEDIFF('1970-01-01', create_time) day_count, concat(date(create_time), '-', hour(create_time)) date_hour
  FROM qrcode_build_log_sync WHERE \$CONDITIONS AND create_time < '$todayStr'"
+
+
+# face_visitor
+todayStr=`date +"%Y-%m-%d"`
+yesterdayStr=`date +"%Y-%m-%d" -d "-1day"`
+sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/face_visitor \
+--hive-import -hive-drop-import-delims --hive-table face_visitor --hive-partition-key face_visitor__day --hive-partition-value $yesterdayStr -m 1 --query \
+"SELECT id AS face_visitor__id, uid AS face_visitor__uid, name AS face_visitor__name, phone AS face_visitor__phone
+    ,type AS face_visitor__type,score AS face_visitor__score,community_id as face_visitor__community_id
+    ,door_id AS face_visitor__door_id, open_time AS face_visitor__open_time, sync_time AS face_visitor__sync_time
+    ,info AS face_visitor__info, uid, open_time AS event_time
+ 	,'脸部识别' AS event_name, '门禁' AS event_type, weekday(open_time) + 1 AS weekday, hour(open_time) AS hour
+ 	, date(open_time) AS date_str, concat(date(open_time), '-', weekday(open_time) + 1) date_weekday
+ 	, DATEDIFF('1970-01-01', open_time) day_count, concat(date(open_time), '-', hour(open_time)) date_hour
+ FROM v_shuguo_face_visitor WHERE \$CONDITIONS AND open_time < '$todayStr'"
+
 
 
 
@@ -72,7 +89,9 @@ drop table visit4_visitor;
 drop table visit_apply;
 drop table visit_apply_visitor;
 drop table qrcode_build_log;
-drop table qrcode_bild_log_sync;
+drop table qrcode_build_log_sync;
+drop table face_visitor;
+drop table access_record;
 
 
 # create table access_record
@@ -93,14 +112,256 @@ FROM qrcode_build_log_sync    -- 门禁记录
 todayStr=`date +"%Y-%m-%d"`
 yesterdayStr=`date +"%Y-%m-%d" -d "-1day"`
 /opt/apps/hive_sugo/bin/hive -e "
-set hive.exec.compress.intermediate=false;
-INSERT INTO TABLE access_record PARTITION(day='${yesterdayStr}')
-SELECT *
+INSERT INTO TABLE access_record
+PARTITION(day='${yesterdayStr}')
+(
+ qrcode_build_log_sync__my_id,
+ qrcode_build_log_sync__my_create_time,
+ qrcode_build_log_sync__my_community_id,
+ qrcode_build_log_sync__id,
+ qrcode_build_log_sync__qrcode_decoding,
+ qrcode_build_log_sync__community_id,
+ qrcode_build_log_sync__type,
+ qrcode_build_log_sync__can_pass_count,
+ qrcode_build_log_sync__begin_time,
+ qrcode_build_log_sync__end_time,
+ qrcode_build_log_sync__qrcode_id,
+ qrcode_build_log_sync__sys_group,
+ qrcode_build_log_sync__create_time,
+ event_time,
+ event_name,
+ event_type,
+ weekday,
+ hour,
+ date_str,
+ date_weekday,
+ day_count,
+ date_hour,
+ qrcode_build_log_sync__day,
+ qrcode_build_log__id,
+ qrcode_build_log__qrcode,
+ qrcode_build_log__uid,
+ qrcode_build_log__phone,
+ qrcode_build_log__is_guanjia,
+ qrcode_build_log__community_id,
+ qrcode_build_log__other_community,
+ qrcode_build_log__create_time,
+ qrcode_build_log__type,
+ qrcode_build_log__begin_time,
+ qrcode_build_log__end_time,
+ qrcode_build_log__can_count,
+ qrcode_build_log__status,
+ qrcode_build_log__admin_id,
+ qrcode_build_log__other_id,
+ qrcode_build_log__sys_type,
+ uid,
+ qrcode_build_log__day,
+ visit_apply_visitor__id,
+ visit_apply_visitor__name,
+ visit_apply_visitor__phone,
+ visit_apply_visitor__idcard,
+ visit_apply_visitor__visit_apply_id,
+ visit_apply_visitor__qrcode_id,
+ visit_apply_visitor__qrcode_uuid,
+ visit_apply__id,
+ visit_apply__community_id,
+ visit_apply__target_name,
+ visit_apply__target_phone,
+ visit_apply__refuse_reason,
+ visit_apply__visit_reason,
+ visit_apply__visit_count,
+ visit_apply__visit_time,
+ visit_apply__create_time,
+ visit_apply__update_time,
+ visit_apply__status,
+ visit_apply__creator,
+ visit4_visitor__id,
+ visit4_visitor__visit_id,
+ visit4_visitor__name,
+ visit4_visitor__uid,
+ visit4_visitor__phone,
+ visit4_visitor__idcard,
+ visit4_visitor__qrcode_id,
+ visit4_visitor__qrcode_uuid,
+ visit4_visitor__status,
+ visit4_info__id,
+ visit4_info__create_uid,
+ visit4_info__create_date,
+ visit4_info__community_id,
+ visit4_info__child_id,
+ visit4_info__master_id,
+ visit4_info__type,
+ visit4_info__visit_date,
+ visit4_info__status,
+ visit4_info__visit_count,
+ community__id,
+ community__name,
+ community__phone,
+ community__tel,
+ community__city_id,
+ community__city_name,
+ community__area_id,
+ community__address,
+ community__intro,
+ community__status,
+ community__category,
+ community__project_guid,
+ community__sort,
+ community__qrcode_url,
+ community__longitude,
+ community__latitude,
+ community__admin_id,
+ community__type,
+ community__building_area,
+ community__practical_area,
+ community__type_desc,
+ community__logo_url,
+ community__background_url,
+ community__topic_audit,
+ community__create_time,
+ community__cid,
+ community__weixin,
+ community__property_company,
+ community__business_person,
+ community__business_phone,
+ community__business_email,
+ community__pinyin,
+ community__sync_flag,
+ community__update_time,
+ gate_id
+)
+SELECT
+ *,
+ concat(community__id, '-', qrcode_build_log_sync__sys_group) gate_id
 FROM qrcode_build_log_sync
 LEFT JOIN qrcode_build_log ON qrcode_build_log_sync__qrcode_id = qrcode_build_log__id
-LEFT JOIN community ON qrcode_build_log_sync__community_id = community__id
 LEFT JOIN visit_apply_visitor ON qrcode_build_log_sync__qrcode_id = visit_apply_visitor__qrcode_id
 LEFT JOIN visit_apply app ON visit_apply_visitor__visit_apply_id = visit_apply__id
 LEFT JOIN visit4_visitor ON qrcode_build_log_sync__qrcode_id = visit4_visitor__qrcode_id
-LEFT JOIN visit4_info ON visit4_visitor__visit_id = visit4_info__id"
+LEFT JOIN visit4_info ON visit4_visitor__visit_id = visit4_info__id
+LEFT JOIN community ON qrcode_build_log_sync__community_id = community__id"
+
+
+todayStr=`date +"%Y-%m-%d"`
+yesterdayStr=`date +"%Y-%m-%d" -d "-1day"`
+/opt/apps/hive_sugo/bin/hive -e "
+INSERT INTO TABLE access_record
+PARTITION(day='${yesterdayStr}')
+(
+ face_visitor__id,
+ face_visitor__uid,
+ face_visitor__name,
+ face_visitor__phone,
+ face_visitor__type,
+ face_visitor__score,
+ face_visitor__community_id,
+ face_visitor__door_id,
+ face_visitor__open_time,
+ face_visitor__sync_time,
+ face_visitor__info,
+ uid,
+ event_time,
+ event_name,
+ event_type,
+ weekday,
+ hour,
+ date_str,
+ date_weekday,
+ day_count,
+ date_hour,
+ face_visitor__day,
+ community__id,
+ community__name,
+ community__phone,
+ community__tel,
+ community__city_id,
+ community__city_name,
+ community__area_id,
+ community__address,
+ community__intro,
+ community__status,
+ community__category,
+ community__project_guid,
+ community__sort,
+ community__qrcode_url,
+ community__longitude,
+ community__latitude,
+ community__admin_id,
+ community__type,
+ community__building_area,
+ community__practical_area,
+ community__type_desc,
+ community__logo_url,
+ community__background_url,
+ community__topic_audit,
+ community__create_time,
+ community__cid,
+ community__weixin,
+ community__property_company,
+ community__business_person,
+ community__business_phone,
+ community__business_email,
+ community__pinyin,
+ community__sync_flag,
+ community__update_time
+)
+SELECT
+ face_visitor__id,
+ face_visitor__uid,
+ face_visitor__name,
+ face_visitor__phone,
+ face_visitor__type,
+ face_visitor__score,
+ face_visitor__community_id,
+ face_visitor__door_id,
+ face_visitor__open_time,
+ face_visitor__sync_time,
+ face_visitor__info,
+ uid,
+ event_time,
+ event_name,
+ event_type,
+ weekday,
+ hour,
+ date_str,
+ date_weekday,
+ day_count,
+ date_hour,
+ face_visitor__day,
+ community__id,
+ community__name,
+ community__phone,
+ community__tel,
+ community__city_id,
+ community__city_name,
+ community__area_id,
+ community__address,
+ community__intro,
+ community__status,
+ community__category,
+ community__project_guid,
+ community__sort,
+ community__qrcode_url,
+ community__longitude,
+ community__latitude,
+ community__admin_id,
+ community__type,
+ community__building_area,
+ community__practical_area,
+ community__type_desc,
+ community__logo_url,
+ community__background_url,
+ community__topic_audit,
+ community__create_time,
+ community__cid,
+ community__weixin,
+ community__property_company,
+ community__business_person,
+ community__business_phone,
+ community__business_email,
+ community__pinyin,
+ community__sync_flag,
+ community__update_time
+FROM face_visitor
+LEFT JOIN community ON face_visitor__community_id = community__id"
 
