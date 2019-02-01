@@ -63,7 +63,7 @@ sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.
  	,'二维码识别' AS event_name, '门禁' AS event_type, weekday(create_time) + 1 AS weekday, hour(create_time) AS hour
  	, date(create_time) AS date_str, concat(date(create_time), '-', weekday(create_time) + 1) date_weekday
  	, DATEDIFF('1970-01-01', create_time) day_count, concat(date(create_time), '-', hour(create_time)) date_hour
- FROM qrcode_build_log_sync WHERE \$CONDITIONS AND '$yesterdayStr' <= create_time and create_time < '$todayStr'"
+ FROM qrcode_build_log_sync WHERE \$CONDITIONS AND '$yesterdayStr' <= my_create_time and my_create_time < '$todayStr'"
 
 
 # face_visitor

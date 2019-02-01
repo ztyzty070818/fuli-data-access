@@ -1,4 +1,16 @@
 
+drop table community;
+drop table visit4_info;
+drop table visit4_visitor;
+drop table visit_apply;
+drop table visit_apply_visitor;
+drop table qrcode_build_log;
+drop table qrcode_build_log_sync;
+drop table face_visitor;
+drop table access_record;
+
+
+
 /opt/apps/hive_sugo/bin/hive -e "set hive.exec.compress.intermediate=false"
 # community
 sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/community \
@@ -63,7 +75,7 @@ sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.
  	,'二维码识别' AS event_name, '门禁' AS event_type, weekday(create_time) + 1 AS weekday, hour(create_time) AS hour
  	, date(create_time) AS date_str, concat(date(create_time), '-', weekday(create_time) + 1) date_weekday
  	, DATEDIFF('1970-01-01', create_time) day_count, concat(date(create_time), '-', hour(create_time)) date_hour
- FROM qrcode_build_log_sync WHERE \$CONDITIONS AND create_time < '$todayStr'"
+ FROM qrcode_build_log_sync WHERE \$CONDITIONS AND my_create_time < '$todayStr'"
 
 
 # face_visitor
@@ -82,16 +94,6 @@ sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.
 
 
 
-
-drop table community;
-drop table visit4_info;
-drop table visit4_visitor;
-drop table visit_apply;
-drop table visit_apply_visitor;
-drop table qrcode_build_log;
-drop table qrcode_build_log_sync;
-drop table face_visitor;
-drop table access_record;
 
 
 # create table access_record
