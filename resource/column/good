@@ -61,6 +61,8 @@ open_order__subject 	string
 open_order__body    	string
 open_order__detail  	string
 open_order__goods_detail	string
+open_order__think_charge	double
+open_order__think_charge_rate	double
 open_store_order__id	string
 open_store_order__user_id	string
 open_store_order__open_id	string

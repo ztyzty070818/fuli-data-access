@@ -4,36 +4,24 @@ package io.sugo.order;
 import com.google.common.collect.Lists;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by zty on 18-11-19
  */
 public class Tess {
-	public static void main(String[] args) throws IOException, InterruptedException {
-		String tableName = "visit4_visitor";
-
-		String columnString = "`id`\n" +
-						"`visit_id`\n" +
-						"`name`\n" +
-						"`uid`\n" +
-						"`phone`\n" +
-						"`idcard`\n" +
-						"`qrcode_id`\n" +
-						"`qrcode_uuid`\n" +
-						"`status`\n";
-
-		List<String> columnList = Lists.newArrayList(columnString.replaceAll("`", "").split("\n"));
-
-		System.out.println("select");
-		for (int i=0; i<columnList.size(); i++) {
-			String column = columnList.get(i);
-			if(i == columnList.size() -1 ) {
-				System.out.println(column + " AS " + tableName + "__" + column);
-			} else {
-				System.out.println(column + " AS " + tableName + "__" + column + ",");
+	public static void main(String[] args) {
+		String str = "2019/01/03 23:20:33.000\t0\t0\t9.8\t2\t2\t教育\t0\t王小姐\t13760855580\t4\t2019/01/03 23:20:33.000\t2019/01/03 23:20:31.000\tWeiXin\tXFSJ_129965558933194858684517702\t980\t19010301506950\tnull\tnull\t2019/01/03 23:35:31.000\t15069\t980\t广州市白云区松洲街罗冲围富力桃园\t510405\t白云\tBaiyun\t56213874\t\t\t0\t2019/01/03 23:20:33.000\t富力—小球星少儿足球培训\t50898\t富力桃园\t440100\t白云区\t中国,广东省,广州市,白云区\t113.27307\t3\t23.15787\t440111\t020\t0\tnull\t\tnull\t1\tnull\tnull\tnull\tnull\t0\tunverified\t185255\ttemplete\t980\t自在社区-自在服务商品购买\t50898\t\tnull\tnull\t2\t\t\t0\tnull\tnull\t0\t自在社区-自在服务商品购买\t0\t0\t\t104\t自在社区-自在服务商品购买\t0\tnull\t广东省 广州市 白云区广州市白云区松洲街罗冲围富力桃园广州-富力桃园-D区6栋-22F-2207\t0\tdisable\t1\tSTORE\t50898\t2\tnull\tTEMPLETE\t2\t\t0\t999\t999\tnull\t0\t0\tnull\t0\t\tnull\tnull\t\t0\tnull\tnull\tnull\tnull\tnull\t\t2019/01/03 23:20:42.000\t185255\tWeiXin\t26160\t19592\t0\tnull\t自在社区-自在服务商品购买\t980\tnull\t50898\t0\t\t21451807\t63444875\tnull\t1\t\t\t0\tnull\t\tnull\tnull\t970.2\t第三方小富市集支付\t1\t\t8\t2\t2\tWeiXin\tXFSJ_129965558933194858684517702\tnull\tnull\tnull\t02010201901187437190017000000607\t2\t0\t2019/01/03 23:35:33.000\t自在社区-自在服务商品购买\t2019/01/03 23:20:33.000\tlife_19010323203314117973452\t104\t119.130.209.29\t[{\"body\":\"富力—小球星冬季特训营招生啦！ * 1\",\"good_id\":\"2753\",\"name\":\"富力—小球星冬季特训营招生啦！ * 1\",\"price\":98000,\"quantity\":1,\"receipt_amount\":98000,\"remark\":\"富力—小球星少儿足球培训\",\"total_amount\":98000}]\t1\t自在社区-自在服务商品购买\t2019/01/18 00:17:00.000\t1\t02990201901037637192320330001352\t2\t68382590\t0\t2018/03/23 16:23:13.000\t2\tnull\t黄燕桃\t5000\t\t1\tnull\tnull\t440000\t1\tnull\t80035708\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\t-1\t不断创新，引领出行服务\thttp://img.thinkinpower.com/G1/M00/0C/38/Ch3-Slq0uCSAc00fAAFSFdQDCnc921.jpg\thttp://img.thinkinpower.com/G1/M00/0C/38/Ch3-Slq0uC6AON4vAAFpfkHeDFk090.jpg\t440106198302121222\t211955\twarrenhe@rfchina.com\t2017/05/08 17:20:10.000\t13828431571\t黄燕桃\t440100\tnull\tnull\t建行东宝支行\t黄燕桃\t6227003320090111610\t珠江新城华夏路10号富力中心35楼3503室\t440106\t836\t1\t2\t999\t0\thttp://img.thinkinpower.com/G1/M00/06/A6/Ch3-Slpzw1KATpe6AAAMx3DhHa0396.jpg\t0\t\t16\t1\t2017/11/17 14:33:47.000\t0\t1\t2018/10/09 17:40:41.000\tnull\t4\t5,000\t1\thttp://img.thinkinpower.com/G1/M00/23/87/Ch3-Slu7DOOADJhFAAW5c_4vviI443.jpg,http://img.thinkinpower.com/G1/M00/23/88/Ch3-Llu7DOeAHzlRAAWktBBHJ9w999.jpg,http://img.thinkinpower.com/G1/M00/23/87/Ch3-Slu7DOyAZ0YvAAaX7DAioRo299.jpg,http://img.thinkinpower.com/G1/M00/23/88/Ch3-Llu7DO-ARZUtAAfz5zqHMkg720.jpg\t摆摊、公共区域张贴公告、拉横幅、业主群、公众号宣传\t1\t\t4.5\t56213874\t0\thttp://store.zizai.thinkinpower.com/api/openstore/notify_url/50898\t2\thttp://img.thinkinpower.com/G1/M00/23/87/Ch3-Slu7CQqAfBh2AASToOabS_Y137.jpg\t0\t0\t0\t211955\tlatest\tlatest\thttp://store.zizai.thinkinpower.com/index.html#/home?isNew=1&serviceId=50898\t2\t2\t2018/10/09 11:36:38.000\t1\t3\tnull\tnull\t小球星少儿足球俱乐部联合富力推出专门针对3-12岁的少儿足球培训。采用荷兰的少儿足球课程体系，寓教于乐，倡导“1+5”的课程理念，通过快乐足球，让小朋友能够在性格培养、竞争意识、身心健康、沟通能力以及团队合作方面获得成长，同时提供丰富的赛事和国内外俱乐部冬夏令营活动。\t2018/09/28 14:34:07.000\t0\tnull\tnull\t4\tnull\tnull\t16\tnull\t2018/10/12 09:21:42.000\t3\tnull\t41097160cf2fea7b01119393689b302c\t68382590\t模板服务\t住宅,\t2\t2\t13929590282\t1\t1\tnull\tnull\thttp://img.thinkinpower.com/G1/M00/00/01/ChnXG1jbZ2SATJ-yAAFY4B1Hh48348.jpg\t\tF661180C-E27A-4476-AC21-0F1DA215C304\tnull\tnull\t\t113.23901428336244\t23.154487963070107\t\t104\t2015/06/19 15:11:36.000\t440111\t440100\t1490172201363\t1\t\t广州市\t980\t\t\t979960.4\thttp://img.thinkinpower.com/G1/M00/00/01/Ci5_YljbZ2iAR3u-AAFY4B1Hh48522.jpg\t108425\n" +
+						"2019/01/03 23:20:33.000\t0\t0\t9.8\t2\t2\t教育\t0\t王小姐\t13760855580\t4\t2019/01/03 23:20:33.000\t2019/01/03 23:20:31.000\tWeiXin\tXFSJ_129965558933194858684517702\t980\t19010301506950\tnull\tnull\t2019/01/03 23:35:31.000\t15069\t980\t广州市白云区松洲街罗冲围富力桃园\t510405\t白云\tBaiyun\t56213874\t\t\t0\t2019/01/03 23:20:33.000\t富力—小球星少儿足球培训\t50898\t富力桃园\t440100\t白云区\t中国,广东省,广州市,白云区\t113.27307\t3\t23.15787\t440111\t020\t0\tnull\t\tnull\t1\tnull\tnull\tnull\tnull\t0\tunverified\t185255\ttemplete\t980\t自在社区-自在服务商品购买\t50898\t\tnull\tnull\t2\t\t\t0\tnull\tnull\t0\t自在社区-自在服务商品购买\t0\t0\t\t104\t自在社区-自在服务商品购买\t0\tnull\t广东省 广州市 白云区广州市白云区松洲街罗冲围富力桃园广州-富力桃园-D区6栋-22F-2207\t0\tdisable\t1\tSTORE\t50898\t2\tnull\tTEMPLETE\t2\t\t0\t999\t999\tnull\t0\t0\tnull\t0\t\tnull\tnull\t\t0\tnull\tnull\tnull\tnull\tnull\t\t2019/01/03 23:20:42.000\t185255\tWeiXin\t26160\t19592\t0\tnull\t自在社区-自在服务商品购买\t980\tnull\t50898\t0\t\t21451807\t63444875\tnull\t1\t\t\t0\tnull\t\tnull\tnull\t970.2\t第三方小富市集支付\t1\t\t8\t2\t2\tWeiXin\tXFSJ_129965558933194858684517702\tnull\tnull\tnull\t02010201901187437190017000000607\t2\t0\t2019/01/03 23:35:33.000\t自在社区-自在服务商品购买\t2019/01/03 23:20:33.000\tlife_19010323203314117973452\t104\t119.130.209.29\t[{\"body\":\"富力—小球星冬季特训营招生啦！ * 1\",\"good_id\":\"2753\",\"name\":\"富力—小球星冬季特训营招生啦！ * 1\",\"price\":98000,\"quantity\":1,\"receipt_amount\":98000,\"remark\":\"富力—小球星少儿足球培训\",\"total_amount\":98000}]\t1\t自在社区-自在服务商品购买\t2019/01/18 00:17:00.000\t1\t02990201901037637192320330001352\t2\t68382590\t0\t2018/03/23 16:23:13.000\t2\tnull\t黄燕桃\t5000\t\t1\tnull\tnull\t440000\t1\tnull\t80035708\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\tnull\t-1\t不断创新，引领出行服务\thttp://img.thinkinpower.com/G1/M00/0C/38/Ch3-Slq0uCSAc00fAAFSFdQDCnc921.jpg\thttp://img.thinkinpower.com/G1/M00/0C/38/Ch3-Slq0uC6AON4vAAFpfkHeDFk090.jpg\t440106198302121222\t211955\twarrenhe@rfchina.com\t2017/05/08 17:20:10.000\t13828431571\t黄燕桃\t440100\tnull\tnull\t建行东宝支行\t黄燕桃\t6227003320090111610\t珠江新城华夏路10号富力中心35楼3503室\t440106\t836\t1\t2\t999\t0\thttp://img.thinkinpower.com/G1/M00/06/A6/Ch3-Slpzw1KATpe6AAAMx3DhHa0396.jpg\t0\t\t16\t1\t2017/11/17 14:33:47.000\t0\t1\t2018/10/09 17:40:41.000\tnull\t4\t5,000\t1\thttp://img.thinkinpower.com/G1/M00/23/87/Ch3-Slu7DOOADJhFAAW5c_4vviI443.jpg,http://img.thinkinpower.com/G1/M00/23/88/Ch3-Llu7DOeAHzlRAAWktBBHJ9w999.jpg,http://img.thinkinpower.com/G1/M00/23/87/Ch3-Slu7DOyAZ0YvAAaX7DAioRo299.jpg,http://img.thinkinpower.com/G1/M00/23/88/Ch3-Llu7DO-ARZUtAAfz5zqHMkg720.jpg\t摆摊、公共区域张贴公告、拉横幅、业主群、公众号宣传\t1\t\t4.5\t56213874\t0\thttp://store.zizai.thinkinpower.com/api/openstore/notify_url/50898\t2\thttp://img.thinkinpower.com/G1/M00/23/87/Ch3-Slu7CQqAfBh2AASToOabS_Y137.jpg\t0\t0\t0\t211955\tlatest\tlatest\thttp://store.zizai.thinkinpower.com/index.html#/home?isNew=1&serviceId=50898\t2\t2\t2018/10/09 11:36:38.000\t1\t3\tnull\tnull\t小球星少儿足球俱乐部联合富力推出专门针对3-12岁的少儿足球培训。采用荷兰的少儿足球课程体系，寓教于乐，倡导“1+5”的课程理念，通过快乐足球，让小朋友能够在性格培养、竞争意识、身心健康、沟通能力以及团队合作方面获得成长，同时提供丰富的赛事和国内外俱乐部冬夏令营活动。\t2018/09/28 14:34:07.000\t0\tnull\tnull\t4\tnull\tnull\t16\tnull\t2018/10/12 09:21:42.000\t3\tnull\t41097160cf2fea7b01119393689b302c\t68382590\t模板服务\t住宅,\t2\t2\t13929590282\t1\t1\tnull\tnull\thttp://img.thinkinpower.com/G1/M00/00/01/ChnXG1jbZ2SATJ-yAAFY4B1Hh48348.jpg\t\tF661180C-E27A-4476-AC21-0F1DA215C304\tnull\tnull\t\t113.23901428336244\t23.154487963070107\t\t104\t2015/06/19 15:11:36.000\t440111\t440100\t1490172201363\t1\t\t广州市\t980\t\t\t979960.4\thttp://img.thinkinpower.com/G1/M00/00/01/Ci5_YljbZ2iAR3u-AAFY4B1Hh48522.jpg\t108425";
+		String[] strs = str.split("\n");
+//		System.out.println(strs[1]);
+		String[] item1 = strs[0].split("\t");
+		String[] item2 = strs[1].split("\t");
+		for(int i=0;i<item1.length;i++) {
+			if(!item1[i].equals(item2[i])) {
+				System.out.println(item1[i]);
 			}
 		}
-		System.out.println("from " + tableName);
 	}
 }

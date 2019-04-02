@@ -4,7 +4,6 @@ import ch.ethz.ssh2.Connection;
 import ch.ethz.ssh2.SCPClient;
 
 import java.io.IOException;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by zty on 18-11-1

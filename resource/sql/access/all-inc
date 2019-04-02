@@ -1,8 +1,8 @@
 
 /opt/apps/hive_sugo/bin/hive -e "set hive.exec.compress.intermediate=false"
 # community
-sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/community \
---hive-import -hive-drop-import-delims --hive-table community -m 1 --query \
+sqoop import -D mapred.job.queue.name=root.default -D mapreduce.framework.name=local --connect jdbc:mysql://10.29.254.109:3306/platform_admin?autoReconnect=true\&characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/community \
+--delete-target-dir --hive-import -hive-drop-import-delims --hive-table community -m 1 --query \
 "SELECT id AS community__id, name AS community__name, phone AS community__phone, tel AS community__tel, city_id AS community__city_id \
 , city_name AS community__city_name, area_id AS community__area_id, address AS community__address, intro AS community__intro, status AS community__status \
 , category AS community__category, project_guid AS community__project_guid, sort AS community__sort, qrcode_url AS community__qrcode_url, longitude AS community__longitude \
@@ -13,30 +13,30 @@ sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.
 FROM community WHERE \$CONDITIONS"
 
 # visit4_info
-sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit4_info \
---hive-import -hive-drop-import-delims --hive-table visit4_info -m 1 --query \
+sqoop import -D mapred.job.queue.name=root.default -D mapreduce.framework.name=local --connect jdbc:mysql://10.29.254.109:3306/platform_admin?autoReconnect=true\&characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit4_info \
+--delete-target-dir --hive-import -hive-drop-import-delims --hive-table visit4_info -m 1 --query \
 "SELECT id AS visit4_info__id, create_uid AS visit4_info__create_uid, create_date AS visit4_info__create_date, community_id AS visit4_info__community_id, child_id AS visit4_info__child_id
  	, master_id AS visit4_info__master_id, type AS visit4_info__type, visit_date AS visit4_info__visit_date, status AS visit4_info__status, visit_count AS visit4_info__visit_count
  FROM visit4_info WHERE \$CONDITIONS"
 
 # visit4_visitor
-sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit4_visitor \
---hive-import -hive-drop-import-delims --hive-table visit4_visitor -m 1 --query \
+sqoop import -D mapred.job.queue.name=root.default -D mapreduce.framework.name=local --connect jdbc:mysql://10.29.254.109:3306/platform_admin?autoReconnect=true\&characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit4_visitor \
+--delete-target-dir --hive-import -hive-drop-import-delims --hive-table visit4_visitor -m 1 --query \
 "SELECT id AS visit4_visitor__id, visit_id AS visit4_visitor__visit_id, name AS visit4_visitor__name, uid AS visit4_visitor__uid, phone AS visit4_visitor__phone
  	, idcard AS visit4_visitor__idcard, qrcode_id AS visit4_visitor__qrcode_id, qrcode_uuid AS visit4_visitor__qrcode_uuid, status AS visit4_visitor__status
  FROM visit4_visitor WHERE \$CONDITIONS"
 
 # visit_apply
-sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit_apply \
---hive-import -hive-drop-import-delims --hive-table visit_apply -m 1 --query \
+sqoop import -D mapred.job.queue.name=root.default -D mapreduce.framework.name=local --connect jdbc:mysql://10.29.254.109:3306/platform_admin?autoReconnect=true\&characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit_apply \
+--delete-target-dir --hive-import -hive-drop-import-delims --hive-table visit_apply -m 1 --query \
 "SELECT id AS visit_apply__id, community_id AS visit_apply__community_id, target_name AS visit_apply__target_name, target_phone AS visit_apply__target_phone, refuse_reason AS visit_apply__refuse_reason
  	, visit_reason AS visit_apply__visit_reason, visit_count AS visit_apply__visit_count, visit_time AS visit_apply__visit_time, create_time AS visit_apply__create_time, update_time AS visit_apply__update_time
  	, status AS visit_apply__status, creator AS visit_apply__creator
  FROM visit_apply WHERE \$CONDITIONS"
 
 # visit_apply_visitor
-sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit_apply_visitor \
---hive-import -hive-drop-import-delims --hive-table visit_apply_visitor -m 1 --query \
+sqoop import -D mapred.job.queue.name=root.default -D mapreduce.framework.name=local --connect jdbc:mysql://10.29.254.109:3306/platform_admin?autoReconnect=true\&characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/visit_apply_visitor \
+--delete-target-dir --hive-import -hive-drop-import-delims --hive-table visit_apply_visitor -m 1 --query \
 "SELECT id AS visit_apply_visitor__id, name AS visit_apply_visitor__name, phone AS visit_apply_visitor__phone, idcard AS visit_apply_visitor__idcard, visit_apply_id AS visit_apply_visitor__visit_apply_id
  	, qrcode_id AS visit_apply_visitor__qrcode_id, qrcode_uuid AS visit_apply_visitor__qrcode_uuid
  FROM visit_apply_visitor WHERE \$CONDITIONS"
@@ -44,8 +44,8 @@ sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.
 # qrcode_build_log
 todayStr=`date +"%Y-%m-%d"`
 yesterdayStr=`date +"%Y-%m-%d" -d "-1day"`
-sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/qrcode_build_log \
---hive-import -hive-drop-import-delims --hive-table qrcode_build_log --hive-partition-key qrcode_build_log__day --hive-partition-value $yesterdayStr -m 1 --query \
+sqoop import -D mapred.job.queue.name=root.default -D mapreduce.framework.name=local --connect jdbc:mysql://10.29.254.109:3306/platform_admin?autoReconnect=true\&characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/qrcode_build_log \
+--delete-target-dir --hive-import -hive-drop-import-delims --hive-table qrcode_build_log --hive-partition-key qrcode_build_log__day --hive-partition-value $yesterdayStr -m 1 --query \
 "SELECT id AS qrcode_build_log__id, qrcode AS qrcode_build_log__qrcode, uid AS qrcode_build_log__uid, phone AS qrcode_build_log__phone, is_guanjia AS qrcode_build_log__is_guanjia
  	, community_id AS qrcode_build_log__community_id, other_community AS qrcode_build_log__other_community, create_time AS qrcode_build_log__create_time, type AS qrcode_build_log__type, begin_time AS qrcode_build_log__begin_time
  	, end_time AS qrcode_build_log__end_time, can_count AS qrcode_build_log__can_count, status AS qrcode_build_log__status, admin_id AS qrcode_build_log__admin_id, other_id AS qrcode_build_log__other_id
@@ -55,8 +55,8 @@ sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.
 # qrcode_build_log_sync
 todayStr=`date +"%Y-%m-%d"`
 yesterdayStr=`date +"%Y-%m-%d" -d "-1day"`
-sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/qrcode_build_log_sync \
---hive-import -hive-drop-import-delims --hive-table qrcode_build_log_sync --hive-partition-key qrcode_build_log_sync__day --hive-partition-value $yesterdayStr -m 1 --query \
+sqoop import -D mapred.job.queue.name=root.default -D mapreduce.framework.name=local --connect jdbc:mysql://10.29.254.109:3306/platform_admin?autoReconnect=true\&characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/qrcode_build_log_sync \
+--delete-target-dir --hive-import -hive-drop-import-delims --hive-table qrcode_build_log_sync --hive-partition-key qrcode_build_log_sync__day --hive-partition-value $yesterdayStr -m 1 --query \
 "SELECT my_id AS qrcode_build_log_sync__my_id, my_create_time AS qrcode_build_log_sync__my_create_time, my_community_id AS qrcode_build_log_sync__my_community_id, id AS qrcode_build_log_sync__id, qrcode_decoding AS qrcode_build_log_sync__qrcode_decoding
  	, community_id AS qrcode_build_log_sync__community_id, type AS qrcode_build_log_sync__type, can_pass_count AS qrcode_build_log_sync__can_pass_count, begin_time AS qrcode_build_log_sync__begin_time, end_time AS qrcode_build_log_sync__end_time
  	, qrcode_id AS qrcode_build_log_sync__qrcode_id, sys_group AS qrcode_build_log_sync__sys_group, create_time AS qrcode_build_log_sync__create_time, create_time AS event_time
@@ -69,8 +69,8 @@ sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.
 # face_visitor
 todayStr=`date +"%Y-%m-%d"`
 yesterdayStr=`date +"%Y-%m-%d" -d "-1day"`
-sqoop import -D mapred.job.queue.name=root.default --connect jdbc:mysql://10.29.254.109:3306/platform_admin?characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/face_visitor \
---hive-import -hive-drop-import-delims --hive-table face_visitor --hive-partition-key face_visitor__day --hive-partition-value $yesterdayStr -m 1 --query \
+sqoop import -D mapred.job.queue.name=root.default -D mapreduce.framework.name=local --connect jdbc:mysql://10.29.254.109:3306/platform_admin?autoReconnect=true\&characterEncoding=UTF-8 --username platform_admin --password 'gob75vuR0KyzI#al' --target-dir=/user/root/warehouse/face_visitor \
+--delete-target-dir --hive-import -hive-drop-import-delims --hive-table face_visitor --hive-partition-key face_visitor__day --hive-partition-value $yesterdayStr -m 1 --query \
 "SELECT id AS face_visitor__id, uid AS face_visitor__uid, name AS face_visitor__name, phone AS face_visitor__phone
     ,type AS face_visitor__type,score AS face_visitor__score,community_id as face_visitor__community_id
     ,door_id AS face_visitor__door_id, open_time AS face_visitor__open_time, sync_time AS face_visitor__sync_time
